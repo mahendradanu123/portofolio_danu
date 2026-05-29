@@ -22,20 +22,23 @@
 </head>
 <body class="bg-[#0b0f19] text-slate-200 font-sans antialiased selection:bg-sky-500 selection:text-white">
 
+    <!-- Efek Background Glow -->
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-sky-500/10 rounded-full blur-[120px]"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-indigo-500/10 rounded-full blur-[120px]"></div>
     </div>
 
+    <!-- Header / Navigasi -->
     <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="text-xl font-bold tracking-wider text-white">PORTOFOLIO<span class="text-sky-400">.</span></div>
             
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-400">
                 <a href="#home" class="hover:text-sky-400 transition-colors">Home</a>
                 <a href="#about" class="hover:text-sky-400 transition-colors">About Me</a>
                 <a href="#resume" class="hover:text-sky-400 transition-colors">Pendidikan</a>
                 <a href="#projects" class="hover:text-sky-400 transition-colors">Proyek</a>
+                <a href="#cv" class="hover:text-sky-400 transition-colors">CV / Resume</a>
                 <a href="#certificates" class="hover:text-sky-400 transition-colors">Sertifikat</a>
                 <a href="#contact" class="hover:text-sky-400 transition-colors">Kontak</a>
             </nav>
@@ -51,16 +54,19 @@
             </div>
         </div>
 
+        <!-- Mobile Menu Navigasi -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/50 bg-[#0b0f19]/95 backdrop-blur-lg px-6 py-4 space-y-4 shadow-xl">
             <a href="#home" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Home</a>
             <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">About Me</a>
             <a href="#resume" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Pendidikan</a>
             <a href="#projects" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Proyek</a>
+            <a href="#cv" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">CV / Resume</a>
             <a href="#certificates" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Sertifikat</a>
             <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Kontak</a>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section id="home" class="min-h-[calc(100vh-5rem)] flex items-center max-w-7xl mx-auto px-6 py-12">
         <div class="grid md:grid-cols-12 gap-12 items-center w-full">
             <div class="md:col-span-7 space-y-6 order-2 md:order-1">
@@ -69,10 +75,10 @@
                     <span id="display-name" class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Bettanuary Danu Mahendra Putra</span>
                 </h1>
                 <p class="text-slate-400 text-lg max-w-xl leading-relaxed">
-                    Mahasiswa Rekayasa Perangkat Lunak yang suka ngulik backend logic, coding aplikasi mobile, sekaligus bikin aset visual 3D di Blender.
+                    Saya seorang Mahasiswa Rekayasa Perangkat Lunak
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a id="display-cv-btn" href="cv-kamu.pdf" target="_blank" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/20 transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <a id="display-cv-btn" href="https://drive.google.com/file/d/1wF5nY28CMXwCxNY23ZRuVZG4Zf2xNL2K/view?usp=sharing" target="_blank" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/20 transform hover:-translate-y-0.5 flex items-center gap-2">
                         <i class="fas fa-file-pdf"></i> Download CV / Resume
                     </a>
                     <a href="#projects" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl transition-all border border-slate-700">Lihat Projek</a>
@@ -89,18 +95,19 @@
         </div>
     </section>
 
+    <!-- About Me Section -->
     <section id="about" class="py-24 border-t border-slate-900 bg-slate-900/30">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center space-y-2 mb-12">
                 <h2 class="text-3xl font-bold text-white">About Me</h2>
-                <p class="text-sm text-sky-400 uppercase tracking-widest">Kenalan Lebih Dekat</p>
+                <p class="text-sm text-sky-400 uppercase tracking-widest">Kenalan grid-cols-1 Lebih Dekat</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="glass-card p-8 rounded-2xl border border-slate-800">
                     <p id="display-bio" class="text-slate-400 text-base leading-relaxed">
-                        Saat ini saya aktif sebagai mahasiswa Teknik Rekayasa Perangkat Lunak. Sehari-hari aktivitas saya tidak jauh dari mengetik baris kode, menyusun struktur basis data, dan memecahkan eror algoritma. <br><br>
-                        Menariknya, saya punya ketertarikan kuat di dunia grafis. Jadi selain fokus ke backend seperti Java atau C++ dan framework CodeIgniter/Flutter, saya juga sering meluangkan waktu di depan Blender untuk membuat modeling objek 3D. Bagi saya, perpaduan antara logika pemrograman yang kaku dengan estetika desain visual adalah kombinasi yang sangat seru untuk dikembangkan.
+                        Saya merupakan seorang mahasiswa aktif semester 6 Program studi  Teknologi Rekayasa Perangkat Lunak di Universitas Duta Bangsa Surakarta yang berfokus pada pengembangan perangkat lunak seperti website,aplikasi,game dan juga animasi 3D.  Memiliki pemahaman dalam manajemen basis data (PHP/MySQL). <br><br>
+                        Sebagai seorang mahasiswa, saya terus belajar dan ber inovasi untuk menghadapi tantangan di dunia teknologi yang terus berkembang. Saya memiliki minat yang besar dalam pengembangan perangkat lunak, terutama dalam pembuatan aplikasi mobile menggunakan Flutter, serta pengembangan website dengan CodeIgniter. Selain itu, saya juga memiliki ketertarikan dalam dunia animasi 3D menggunakan Blender, yang memungkinkan saya untuk menggabungkan kreativitas dengan teknologi. <br><br>
                     </p>
                 </div>
                 <div class="space-y-4">
@@ -132,6 +139,7 @@
         </div>
     </section>
 
+    <!-- Riwayat Pendidikan Section -->
     <section id="resume" class="py-24 max-w-5xl mx-auto px-6">
         <div class="text-center space-y-2 mb-16">
             <h2 class="text-3xl font-bold text-white">Riwayat Pendidikan</h2>
@@ -151,7 +159,7 @@
                     <div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-500 group-hover:scale-125 transition-transform shadow shadow-sky-500"></div>
                     <div class="glass-card p-6 rounded-xl border border-slate-800">
                         <span class="text-xs font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-full">2023 - Sekarang</span>
-                        <h4 class="text-lg font-bold text-white mt-3">Diploma IV / Sarjana Terapan - Teknik Rekayasa Perangkat Lunak</h4>
+                        <h4 class="text-lg font-bold text-white mt-3">Diploma IV / Sarjana Terapan - Teknologi Rekayasa Perangkat Lunak</h4>
                         <p class="text-sm text-slate-400 font-medium">Fakultas Ilmu Komputer / Universitas Duta Bangsa Surakarta</p>
                         <p class="text-xs text-slate-500 mt-2">Fokus mempelajari siklus pengembangan software, manajemen basis data relasional, pembuatan Animasi 3D, pengujian perangkat lunak, serta arsitektur sistem berbasis web dan mobile.</p>
                     </div>
@@ -160,51 +168,98 @@
         </div>
     </section>
 
+    <!-- Pengalaman Proyek Section -->
     <section id="projects" class="py-24 bg-slate-900/20 border-t border-slate-900">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center space-y-2 mb-16">
-                <h2 class="text-3xl font-bold text-white">Proyek Yang Pernah Dibuat</h2>
-                <p class="text-slate-400 max-w-md mx-auto text-sm">Beberapa hasil eksperimen coding dan pengerjaan tugas kuliah yang berhasil saya selesaikan.</p>
+                <h2 class="text-3xl font-bold text-white">Pengalaman Proyek</h2>
+                <p class="text-slate-400 max-w-md mx-auto text-sm">Beberapa hasil proyek dan aplikasi yang telah berhasil saya bangun dan kembangkan.</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Mobile App Development</span>
-                        <h3 class="text-lg font-bold text-white">Aplikasi Tracking Tugas Kuliah</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Aplikasi mobile lintas platform untuk mencatat dan memberikan notifikasi pengingat tenggat waktu tugas kuliah agar pengerjaan lebih teratur.</p>
-                    </div>
-                    <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
-                        <span>Teknologi: <span class="text-sky-400">Flutter, Dart</span></span>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Modeling</span>
-                        <h3 class="text-lg font-bold text-white">Desain Komponen & Aset Game Low-Poly</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Eksperimen pembuatan model aset lingkungan (environment) tiga dimensi berkonsep low-poly yang ringan saat di-render atau di-import ke game engine.</p>
-                    </div>
-                    <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
-                        <span>Teknologi: <span class="text-amber-500">Blender, Texturing</span></span>
-                    </div>
-                </div>
-
+                <!-- Proyek 1 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
                     <div class="p-6 space-y-3">
                         <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
-                        <h3 class="text-lg font-bold text-white">Sistem Gudang Berbasis MVC</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Aplikasi berbasis web untuk mencatat keluar masuknya barang inventaris lab, lengkap dengan fitur filter status dan grafik berkala sederhana.</p>
+                        <h3 class="text-lg font-bold text-white">Web Perpustakaan Sekolah</h3>
+                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1">
+                            <li>Membuat fitur Dashboard, macam Buku, Stok, peminjam, tanggal pengembalian, dll.</li>
+                            <li>Membuat Database menggunakan MySQL.</li>
+                            <li>Memimpin pelaksanaan pembangunan.</li>
+                        </ul>
                     </div>
                     <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
-                        <span>Teknologi: <span class="text-orange-500">CodeIgniter, MySQL</span></span>
+                        <span>Teknologi: <span class="text-sky-400">MySQL, Web Tech</span></span>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Fullstack / Mobile App</span>
+                        <h3 class="text-lg font-bold text-white">Web Toko Rempah (Rasaloka)</h3>
+                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1">
+                            <li>Membangun dan merancang desain tampilan yang akan dibuat.</li>
+                            <li>Membuat Database menggunakan MySQL.</li>
+                            <li>Membuat fitur dashboard, menggunakan Flutter.</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
+                        <span>Teknologi: <span class="text-emerald-400">Flutter, MySQL</span></span>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Animation</span>
+                        <h3 class="text-lg font-bold text-white">Animasi Bola Berekor 3D</h3>
+                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1">
+                            <li>Menganimasikan objek sebuah bola berekor menggunakan aplikasi Blender.</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
+                        <span>Teknologi: <span class="text-amber-500">Blender</span></span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Curriculum Vitae (CV) Section -->
+    <section id="cv" class="py-24 border-t border-slate-900 bg-slate-900/40">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center space-y-2 mb-12">
+                <h2 class="text-3xl font-bold text-white">Curriculum Vitae</h2>
+                <p class="text-sm text-sky-400 uppercase tracking-widest">Informasi Riwayat Hidup Profesional</p>
+                <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="glass-card rounded-2xl border border-sky-500/30 overflow-hidden flex flex-col md:flex-row group hover:border-sky-500 transition-all duration-300 shadow-xl shadow-sky-500/5 max-w-2xl w-full">
+                    <div class="w-full md:w-1/2 aspect-[16/11] md:aspect-auto overflow-hidden bg-slate-950 relative">
+                        <img src="cv.png" alt="Pratinjau CV" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 md:w-1/2 flex flex-col justify-between space-y-6 bg-gradient-to-b md:bg-gradient-to-r from-transparent to-sky-950/10">
+                        <div class="space-y-3">
+                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded">Dokumen Utama</span>
+                            <h3 class="text-xl font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Curriculum Vitae & Resume</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Berisi rangkuman riwayat akademis, tumpukan teknologi (tech stack), keahlian teknis, serta rekam jejak pengerjaan proyek software development saya.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800/50">
+                            <span class="text-[11px] text-slate-500 font-medium">Terbaru (Sms. 6)</span>
+                            <a id="display-cv-card-btn" href="https://drive.google.com/file/d/1wF5nY28CMXwCxNY23ZRuVZG4Zf2xNL2K/view?usp=sharing" target="_blank" class="text-sm text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Buka / Unduh <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sertifikasi & Penghargaan Section -->
     <section id="certificates" class="py-24 border-t border-slate-900 bg-slate-900/10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center space-y-2 mb-16">
@@ -214,6 +269,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sertifikat 1 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif1.jpeg" alt="Sertifikat 1" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -230,6 +286,7 @@
                     </div>
                 </div>
 
+                <!-- Sertifikat 2 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif2.jpeg" alt="Sertifikat 2" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -246,6 +303,7 @@
                     </div>
                 </div>
 
+                <!-- Sertifikat 3 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif3.jpeg" alt="Sertifikat 3" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -262,6 +320,7 @@
                     </div>
                 </div>
 
+                <!-- Sertifikat 4 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif4.jpeg" alt="Sertifikat 4" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -278,6 +337,7 @@
                     </div>
                 </div>
 
+                <!-- Sertifikat 5 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif5.jpeg" alt="Sertifikat 5" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -294,6 +354,7 @@
                     </div>
                 </div>
 
+                <!-- Sertifikat 6 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif6.jpeg" alt="Sertifikat 6" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -310,66 +371,53 @@
                     </div>
                 </div>
 
+                <!-- Sertifikat 7 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
-                        <img src="sertif7.jpg" alt="Sertifikat 7" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
+                        <img src="sertif7.jpeg" alt="Sertifikat 7" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Judul Sertifikat Ketujuh</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Nama Lembaga</p>
+                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Membuat Aplikasi Mobile dengan Flutter</h3>
+                            <p class="text-xs text-slate-400">Penyelenggara: Program Studi Sarjana Terapan Teknlogi Rekayasa Perangkat Lunak, Falkutas Ilmu Komputer,Universitas Duta Bangsa Surakarta </p>
                         </div>
                         <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
-                            <span class="text-[11px] text-slate-500 font-medium">2024</span>
-                            <a href="sertif7.jpg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <span class="text-[11px] text-slate-500 font-medium">28 September2024</span>
+                            <a href="sertif7.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Sertifikat 8 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
-                        <img src="sertif8.jpg" alt="Sertifikat 8" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
+                        <img src="sertif8.jpeg" alt="Sertifikat 8" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Judul Sertifikat Kedelapan</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Nama Lembaga</p>
+                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Pelatihan Pembuatan animasi sebagai Media Promosi</h3>
+                            <p class="text-xs text-slate-400">Penyelenggara: Program Studi Sarjana Terapan Teknlogi Rekayasa Perangkat Lunak, Falkutas Ilmu Komputer,Universitas Duta Bangsa Surakarta </p>
                         </div>
                         <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
-                            <span class="text-[11px] text-slate-500 font-medium">2024</span>
-                            <a href="sertif8.jpg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <span class="text-[11px] text-slate-500 font-medium">30 Desember2023</span>
+                            <a href="sertif8.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Sertifikat 9 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
-                        <img src="sertif9.jpg" alt="Sertifikat 9" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
+                        <img src="sertif9.jpeg" alt="Sertifikat 9" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Judul Sertifikat Kesembilan</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Nama Lembaga</p>
+                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Desain Grafis Unik untuk Personal Branding Content Creator</h3>
+                            <p class="text-xs text-slate-400">Penyelenggara: Program Studi Sarjana Terapan Teknlogi Rekayasa Perangkat Lunak, Falkutas Ilmu Komputer,Universitas Duta Bangsa Surakarta </p>
                         </div>
                         <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
-                            <span class="text-[11px] text-slate-500 font-medium">2024</span>
-                            <a href="sertif9.jpg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
-                    <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
-                        <img src="sertif10.jpeg" alt="Sertifikat 10" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
-                        <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Judul Sertifikat Kesepuluh</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Nama Lembaga</p>
-                        </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
-                            <span class="text-[11px] text-slate-500 font-medium">2023</span>
-                            <a href="sertif10.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <span class="text-[11px] text-slate-500 font-medium">24 Mei 2024</span>
+                            <a href="sertif9.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
@@ -377,6 +425,7 @@
         </div>
     </section>
 
+    <!-- Kontak Section -->
     <section id="contact" class="py-24 bg-slate-900/40 border-t border-slate-900">
         <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
             <div class="space-y-2">
@@ -417,6 +466,7 @@
         </div>
     </section>
 
+    <!-- Panel Editor Modal Overlay -->
     <div id="config-panel" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
         <div class="glass-card max-w-md w-full rounded-2xl border border-slate-800 p-6 space-y-4 shadow-2xl">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
@@ -458,8 +508,8 @@
         </div>
     </div>
 
+    <!-- JavaScript Logika & Sinkronisasi -->
     <script>
-        // Fungsi untuk buka-tutup Menu Hamburger di HP
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -473,7 +523,6 @@
             }
         }
 
-        // Fungsi buka-tutup Panel Editor
         function toggleConfigPanel() {
             const panel = document.getElementById('config-panel');
             panel.classList.toggle('hidden');
@@ -484,7 +533,6 @@
                 document.getElementById('input-email').value = document.getElementById('display-email').innerText;
                 document.getElementById('input-phone').value = document.getElementById('display-phone').innerText;
                 
-                // Memuat link CV saat panel dibuka
                 document.getElementById('input-cv').value = localStorage.getItem('portfolio_cv') || document.getElementById('display-cv-btn').getAttribute('href');
                 
                 let currentIg = document.getElementById('display-instagram').innerText;
@@ -492,7 +540,6 @@
             }
         }
 
-        // Fungsi simpan pengaturan data ke LocalStorage
         function saveConfiguration() {
             const name = document.getElementById('input-name').value;
             const bio = document.getElementById('input-bio').value;
@@ -512,7 +559,6 @@
             toggleConfigPanel();
         }
 
-        // Fungsi memuat data yang tersimpan ketika web dibuka
         function applyLoadedData() {
             if (localStorage.getItem('portfolio_name')) {
                 document.getElementById('display-name').innerText = localStorage.getItem('portfolio_name');
@@ -521,7 +567,9 @@
                 document.getElementById('display-bio').innerHTML = localStorage.getItem('portfolio_bio').replace(/\n/g, '<br>');
             }
             if (localStorage.getItem('portfolio_cv')) {
-                document.getElementById('display-cv-btn').setAttribute('href', localStorage.getItem('portfolio_cv'));
+                const cvUrl = localStorage.getItem('portfolio_cv');
+                document.getElementById('display-cv-btn').setAttribute('href', cvUrl);
+                document.getElementById('display-cv-card-btn').setAttribute('href', cvUrl);
             }
             if (localStorage.getItem('portfolio_email')) {
                 const email = localStorage.getItem('portfolio_email');
@@ -545,7 +593,6 @@
             }
         }
 
-        // Jalankan fungsi muat data otomatis saat dokumen siap
         window.onload = applyLoadedData;
     </script>
 </body>
