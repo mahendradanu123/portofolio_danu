@@ -6,6 +6,7 @@
     <title>Bettanuary Danu M.P. | Portofolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <style>
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
@@ -22,13 +23,11 @@
 </head>
 <body class="bg-[#0b0f19] text-slate-200 font-sans antialiased selection:bg-sky-500 selection:text-white">
 
-    <!-- Efek Background Glow -->
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-sky-500/10 rounded-full blur-[120px]"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-indigo-500/10 rounded-full blur-[120px]"></div>
     </div>
 
-    <!-- Header / Navigasi -->
     <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="text-xl font-bold tracking-wider text-white">PORTOFOLIO<span class="text-sky-400">.</span></div>
@@ -44,17 +43,12 @@
             </nav>
             
             <div class="flex items-center gap-3">
-                <button onclick="toggleConfigPanel()" class="bg-slate-800 hover:bg-sky-500 hover:text-white text-sky-400 px-4 h-10 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all shadow-md cursor-pointer">
-                    <i class="fas fa-sliders"></i> <span class="hidden sm:inline">Panel Editor</span>
-                </button>
-                
                 <button onclick="toggleMobileMenu()" class="md:hidden text-slate-400 hover:text-white text-xl p-2 focus:outline-none cursor-pointer" aria-label="Toggle Menu">
                     <i id="hamburger-icon" class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Navigasi -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/50 bg-[#0b0f19]/95 backdrop-blur-lg px-6 py-4 space-y-4 shadow-xl">
             <a href="#home" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Home</a>
             <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">About Me</a>
@@ -66,7 +60,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="min-h-[calc(100vh-5rem)] flex items-center max-w-7xl mx-auto px-6 py-12">
         <div class="grid md:grid-cols-12 gap-12 items-center w-full">
             <div class="md:col-span-7 space-y-6 order-2 md:order-1">
@@ -78,7 +71,7 @@
                     Saya seorang Mahasiswa Rekayasa Perangkat Lunak
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a id="display-cv-btn" href="https://drive.google.com/file/d/1wF5nY28CMXwCxNY23ZRuVZG4Zf2xNL2K/view?usp=sharing" target="_blank" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/20 transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <a id="display-cv-btn" href="cv.png" target="_blank" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/20 transform hover:-translate-y-0.5 flex items-center gap-2">
                         <i class="fas fa-file-pdf"></i> Download CV / Resume
                     </a>
                     <a href="#projects" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl transition-all border border-slate-700">Lihat Projek</a>
@@ -95,43 +88,75 @@
         </div>
     </section>
 
-    <!-- About Me Section -->
     <section id="about" class="py-24 border-t border-slate-900 bg-slate-900/30">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-4xl mx-auto px-6">
             <div class="text-center space-y-2 mb-12">
                 <h2 class="text-3xl font-bold text-white">About Me</h2>
-                <p class="text-sm text-sky-400 uppercase tracking-widest">Kenalan grid-cols-1 Lebih Dekat</p>
+                <p class="text-sm text-sky-400 uppercase tracking-widest">Kenalan Lebih Dekat</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="glass-card p-8 rounded-2xl border border-slate-800">
-                    <p id="display-bio" class="text-slate-400 text-base leading-relaxed">
-                        Saya merupakan seorang mahasiswa aktif semester 6 Program studi  Teknologi Rekayasa Perangkat Lunak di Universitas Duta Bangsa Surakarta yang berfokus pada pengembangan perangkat lunak seperti website,aplikasi,game dan juga animasi 3D.  Memiliki pemahaman dalam manajemen basis data (PHP/MySQL). <br><br>
-                        Sebagai seorang mahasiswa, saya terus belajar dan ber inovasi untuk menghadapi tantangan di dunia teknologi yang terus berkembang. Saya memiliki minat yang besar dalam pengembangan perangkat lunak, terutama dalam pembuatan aplikasi mobile menggunakan Flutter, serta pengembangan website dengan CodeIgniter. Selain itu, saya juga memiliki ketertarikan dalam dunia animasi 3D menggunakan Blender, yang memungkinkan saya untuk menggabungkan kreativitas dengan teknologi. <br><br>
+            
+            <div class="space-y-16">
+                <div class="glass-card p-8 rounded-2xl border border-slate-800 shadow-xl">
+                    <p id="display-bio" class="text-slate-400 text-base leading-relaxed text-justify sm:text-left">
+                        Saya merupakan seorang mahasiswa aktif semester 6 Program studi Teknologi Rekayasa Perangkat Lunak di Universitas Duta Bangsa Surakarta yang berfokus pada pengembangan perangkat lunak seperti website, aplikasi, game dan juga animasi 3D. Memiliki pemahaman dalam manajemen basis data (PHP/MySQL). <br><br>
+                        Sebagai seorang mahasiswa, saya terus belajar dan berinovasi untuk menghadapi tantangan di dunia teknologi yang terus berkembang. Saya memiliki minat yang besar dalam pengembangan perangkat lunak, terutama dalam pembuatan aplikasi mobile menggunakan Flutter, serta pengembangan website dengan CodeIgniter atau framework backend modern lainnya. Selain itu, saya juga memiliki ketertarikan dalam dunia animasi 3D menggunakan Blender, yang memungkinkan saya untuk menggabungkan kreativitas dengan teknologi. <br><br>
                     </p>
                 </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-white mb-2">Tech Skills & Tools</h3>
-                    <div class="space-y-3 text-sm">
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="font-medium">HTML, CSS, Web Dasar</span><span>90%</span></div>
-                            <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-sky-500 h-2 rounded-full" style="width: 90%"></div></div>
+
+                <div class="space-y-8">
+                    <h3 class="text-xl font-bold text-white flex items-center justify-center gap-2">
+                        <i class="fas fa-code text-sky-400"></i> Tech Skills & Tools
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-html5-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">HTML5</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="font-medium">Java & C++ (OOP / Algoritma)</span><span>85%</span></div>
-                            <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-indigo-500 h-2 rounded-full" style="width: 85%"></div></div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-css3-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">CSS3</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="font-medium">Flutter (Mobile App)</span><span>80%</span></div>
-                            <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div></div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-javascript-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">JavaScript</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="font-medium">CodeIgniter (PHP Framework)</span><span>80%</span></div>
-                            <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-orange-500 h-2 rounded-full" style="width: 80%"></div></div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-sky-600/50 hover:shadow-lg hover:shadow-sky-600/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-mysql-plain-wordmark colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">MySQL</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="font-medium">Blender (3D Modeling & Rendering)</span><span>75%</span></div>
-                            <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-amber-500 h-2 rounded-full" style="width: 75%"></div></div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-indigo-400/50 hover:shadow-lg hover:shadow-indigo-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-php-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">PHP</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-sky-400/50 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-tailwindcss-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Tailwind CSS</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-go-original-wordmark colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Go (Golang)</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-flutter-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Flutter</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-orange-400/50 hover:shadow-lg hover:shadow-orange-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-blender-original colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Blender 3D</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-csharp-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">C# Script</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-slate-400/50 hover:shadow-lg hover:shadow-slate-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="devicon-unity-original colored text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Unity 3D</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-pink-500/50 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fas fa-bezier-curve text-pink-500 text-5xl group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">UI/UX Wireframe</span>
                         </div>
                     </div>
                 </div>
@@ -146,15 +171,15 @@
             <p class="text-sm text-sky-400 uppercase tracking-widest">Latar Belakang Akademis</p>
             <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
         </div>
-
         <div class="grid md:grid-cols-12 gap-8">
             <div class="md:col-span-4 space-y-2">
                 <div class="border-l-4 border-sky-500 bg-slate-900/50 p-4 rounded-r-xl">
                     <h3 class="font-bold text-white flex items-center gap-2"><i class="fas fa-graduation-cap text-sky-400"></i> Akademik</h3>
                 </div>
             </div>
-
             <div class="md:col-span-8 space-y-8 relative before:absolute before:top-0 before:left-4 before:w-0.5 before:h-full before:bg-slate-800">
+                
+                <!-- Pendidikan 1: Kuliah (Terbaru) -->
                 <div class="relative pl-10 group">
                     <div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-500 group-hover:scale-125 transition-transform shadow shadow-sky-500"></div>
                     <div class="glass-card p-6 rounded-xl border border-slate-800">
@@ -164,70 +189,154 @@
                         <p class="text-xs text-slate-500 mt-2">Fokus mempelajari siklus pengembangan software, manajemen basis data relasional, pembuatan Animasi 3D, pengujian perangkat lunak, serta arsitektur sistem berbasis web dan mobile.</p>
                     </div>
                 </div>
+
+                <!-- Pendidikan 2: SMK -->
+                <div class="relative pl-10 group">
+                    <div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 group-hover:bg-sky-500 group-hover:scale-125 transition-all shadow shadow-slate-500"></div>
+                    <div class="glass-card p-6 rounded-xl border border-slate-800">
+                        <span class="text-xs font-bold text-slate-400 bg-slate-800 px-2.5 py-1 rounded-full group-hover:text-sky-400 group-hover:bg-sky-500/10 transition-colors">2020 - 2023</span>
+                        <h4 class="text-lg font-bold text-white mt-3">SMK - Rekayasa Perangkat Lunak (RPL)</h4>
+                        <p class="text-sm text-slate-400 font-medium">SMK Negeri 2 Surakarta</p>
+                        <p class="text-xs text-slate-500 mt-2">Fokus pada dasar-dasar pemrograman algoritma dan pembuatan web menggunakan teknologi HTML5, CSS3, pemrograman sisi server dengan PHP, serta manajemen basis data tingkat dasar.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Pengalaman Proyek Section -->
     <section id="projects" class="py-24 bg-slate-900/20 border-t border-slate-900">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center space-y-2 mb-16">
+            <div class="text-center space-y-2 mb-10">
                 <h2 class="text-3xl font-bold text-white">Pengalaman Proyek</h2>
-                <p class="text-slate-400 max-w-md mx-auto text-sm">Beberapa hasil proyek dan aplikasi yang telah berhasil saya bangun dan kembangkan.</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Proyek 1 -->
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
-                        <h3 class="text-lg font-bold text-white">Web Perpustakaan Sekolah</h3>
-                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1">
-                            <li>Membuat fitur Dashboard, macam Buku, Stok, peminjam, tanggal pengembalian, dll.</li>
-                            <li>Membuat Database menggunakan MySQL.</li>
-                            <li>Memimpin pelaksanaan pembangunan.</li>
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button onclick="filterProjects('all')" class="project-filter-btn active bg-sky-500 text-white px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-transparent">
+                    Semua Proyek
+                </button>
+                <button onclick="filterProjects('web')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                    Web Application
+                </button>
+                <button onclick="filterProjects('mobile')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                    Mobile App
+                </button>
+                <button onclick="filterProjects('backend')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                    Backend / System
+                </button>
+            </div>
+
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="backend">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Backend & System</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://github.com/rullxd/Kelompok_UAS" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">SIMPEL-K - Campus Complaint System</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Sistem manajemen keluhan dan layanan kampus terintegrasi yang andal, aman, dan efisien untuk mahasiswa serta admin.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Otentikasi aman berbasis JWT (Login Admin & Student).</li>
+                            <li>Role-based Access Control & Manajemen Complaint (CRUD).</li>
+                            <li>Fitur submit pengaduan dengan unggah file (*multipart data*).</li>
+                            <li>Dasbor analitik dilengkapi filter, pencarian, & statistik keluhan.</li>
                         </ul>
                     </div>
-                    <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
-                        <span>Teknologi: <span class="text-sky-400">MySQL, Web Tech</span></span>
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-sky-400 text-xs"></i> Go (Gin), GORM, JWT, MySQL, Tailwind</div>
                     </div>
                 </div>
 
-                <!-- Proyek 2 -->
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Fullstack / Mobile App</span>
-                        <h3 class="text-lg font-bold text-white">Web Toko Rempah (Rasaloka)</h3>
-                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1">
-                            <li>Membangun dan merancang desain tampilan yang akan dibuat.</li>
-                            <li>Membuat Database menggunakan MySQL.</li>
-                            <li>Membuat fitur dashboard, menggunakan Flutter.</li>
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://github.com/mahendradanu123/web-profil-desa-kalimati" target="_blank" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Web Profil Desa Kalimati</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Platform informasi publik resmi untuk mengenalkan potensi wilayah, struktur organisasi, berita, serta transparansi layanan Desa Kalimati, Kabupaten Boyolali.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Penyajian profil geografis, demografi, dan keunggulan desa.</li>
+                            <li>Panel manajemen berita desa dan agenda kegiatan interaktif.</li>
+                            <li>Desain antarmuka responsif untuk memudahkan akses warga lokal.</li>
                         </ul>
                     </div>
-                    <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
-                        <span>Teknologi: <span class="text-emerald-400">Flutter, MySQL</span></span>
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-emerald-400 text-xs"></i> PHP, MySQL, Bootstrap / Tailwind</div>
                     </div>
                 </div>
 
-                <!-- Proyek 3 -->
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/30 transition-all">
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Animation</span>
-                        <h3 class="text-lg font-bold text-white">Animasi Bola Berekor 3D</h3>
-                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1">
-                            <li>Menganimasikan objek sebuah bola berekor menggunakan aplikasi Blender.</li>
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="mobile">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">Mobile Application</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://github.com/adittttttttt123/donor_darah.git" target="_blank" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Aplikasi Donor Darah Mobile</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Aplikasi mobile lintas platform yang memudahkan masyarakat mencari ketersediaan stok darah, mendaftar jadwal donor, serta memetakan lokasi posko donor darah terdekat.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Manajemen kartu donor digital dan riwayat aktivitas pengguna.</li>
+                            <li>Sistem pengingat berkala untuk donor darah kembali.</li>
+                            <li>Antarmuka UI/UX yang modern, ringan, dan responsif di Android & iOS.</li>
                         </ul>
                     </div>
-                    <div class="p-6 pt-0 border-t border-slate-800/50 mt-4 flex items-center justify-between text-xs text-slate-500 font-semibold bg-slate-900/30">
-                        <span>Teknologi: <span class="text-amber-500">Blender</span></span>
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-amber-500 text-xs"></i> Flutter, Dart, REST API</div>
                     </div>
                 </div>
+
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="3d-game">
+    <div class="p-6 space-y-4">
+        <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Animation</span>
+            <!-- Tautan ikon ke Google Drive -->
+            <div class="flex gap-2 text-slate-400 text-sm">
+                <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="hover:text-amber-400 transition-colors" title="Buka Video di Google Drive">
+                    <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+            </div>
+        </div>
+        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Animasi Bola Berekor 3D</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+            Simulasi gerakan mekanika fluida dan prinsip dasar animasi (Squash & Stretch) pada objek berekor.
+        </p>
+        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+            <li>Pemodelan mesh 3D struktur bola dan pelengkap ekor.</li>
+            <li>Penerapan teknik keyframing untuk simulasi gerak realistis.</li>
+            <li>Proses rendering pencahayaan serta tekstur material di Blender.</li>
+        </ul>
+    </div>
+    
+    <!-- Bagian Footer Kartu dengan Informasi Tech Stack & Tombol Tonton -->
+    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
+        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
+            <i class="fas fa-layer-group text-amber-500 text-xs"></i> Blender 3D, Cycles Render
+        </div>
+        <!-- Tombol Interaktif untuk Membuka Video -->
+        <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500 text-amber-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-amber-500/20 text-center">
+            <i class="fas fa-play text-[9px]"></i> Tonton Video
+        </a>
+    </div>
+</div>
+
             </div>
         </div>
     </section>
 
-    <!-- Curriculum Vitae (CV) Section -->
     <section id="cv" class="py-24 border-t border-slate-900 bg-slate-900/40">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center space-y-2 mb-12">
@@ -235,7 +344,6 @@
                 <p class="text-sm text-sky-400 uppercase tracking-widest">Informasi Riwayat Hidup Profesional</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
-
             <div class="flex justify-center">
                 <div class="glass-card rounded-2xl border border-sky-500/30 overflow-hidden flex flex-col md:flex-row group hover:border-sky-500 transition-all duration-300 shadow-xl shadow-sky-500/5 max-w-2xl w-full">
                     <div class="w-full md:w-1/2 aspect-[16/11] md:aspect-auto overflow-hidden bg-slate-950 relative">
@@ -251,7 +359,7 @@
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">Terbaru (Sms. 6)</span>
-                            <a id="display-cv-card-btn" href="https://drive.google.com/file/d/1wF5nY28CMXwCxNY23ZRuVZG4Zf2xNL2K/view?usp=sharing" target="_blank" class="text-sm text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Buka / Unduh <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a id="display-cv-card-btn" href="cv.png" target="_blank" class="text-sm text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Buka / Unduh <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
@@ -259,7 +367,6 @@
         </div>
     </section>
 
-    <!-- Sertifikasi & Penghargaan Section -->
     <section id="certificates" class="py-24 border-t border-slate-900 bg-slate-900/10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center space-y-2 mb-16">
@@ -267,9 +374,7 @@
                 <p class="text-sm text-sky-400 uppercase tracking-widest">Koleksi Sertifikat Kompetensi</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Sertifikat 1 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif1.jpeg" alt="Sertifikat 1" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -285,8 +390,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 2 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif2.jpeg" alt="Sertifikat 2" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -302,8 +405,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 3 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif3.jpeg" alt="Sertifikat 3" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -319,8 +420,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 4 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif4.jpeg" alt="Sertifikat 4" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -336,8 +435,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 5 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif5.jpeg" alt="Sertifikat 5" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -353,8 +450,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 6 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif6.jpeg" alt="Sertifikat 6" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -370,8 +465,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 7 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif7.jpeg" alt="Sertifikat 7" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -379,16 +472,14 @@
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
                             <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Membuat Aplikasi Mobile dengan Flutter</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Program Studi Sarjana Terapan Teknlogi Rekayasa Perangkat Lunak, Falkutas Ilmu Komputer,Universitas Duta Bangsa Surakarta </p>
+                            <p class="text-xs text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
                         </div>
                         <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
-                            <span class="text-[11px] text-slate-500 font-medium">28 September2024</span>
+                            <span class="text-[11px] text-slate-500 font-medium">28 September 2024</span>
                             <a href="sertif7.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 8 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif8.jpeg" alt="Sertifikat 8" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -396,16 +487,14 @@
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
                             <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Pelatihan Pembuatan animasi sebagai Media Promosi</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Program Studi Sarjana Terapan Teknlogi Rekayasa Perangkat Lunak, Falkutas Ilmu Komputer,Universitas Duta Bangsa Surakarta </p>
+                            <p class="text-xs text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
                         </div>
                         <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
-                            <span class="text-[11px] text-slate-500 font-medium">30 Desember2023</span>
+                            <span class="text-[11px] text-slate-500 font-medium">30 Desember 2023</span>
                             <a href="sertif8.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Sertifikat 9 -->
                 <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif9.jpeg" alt="Sertifikat 9" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
@@ -413,7 +502,7 @@
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
                             <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Desain Grafis Unik untuk Personal Branding Content Creator</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Program Studi Sarjana Terapan Teknlogi Rekayasa Perangkat Lunak, Falkutas Ilmu Komputer,Universitas Duta Bangsa Surakarta </p>
+                            <p class="text-xs text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
                         </div>
                         <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">24 Mei 2024</span>
@@ -425,12 +514,11 @@
         </div>
     </section>
 
-    <!-- Kontak Section -->
     <section id="contact" class="py-24 bg-slate-900/40 border-t border-slate-900">
         <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
             <div class="space-y-2">
                 <h2 class="text-3xl font-bold text-white">Hubungi Saya</h2>
-                <p class="text-sm text-slate-400 max-w-sm mx-auto">Ada proyek yang mau didiskusikan atau sekadar ingin bertukar pikiran? Silakan hubungi saya.</p>
+                <p class="text-sm text-slate-400 max-w-sm mx-auto">Ada proyek yang mau didiskusikan? Silakan hubungi saya.</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
             
@@ -453,7 +541,7 @@
                     <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center"><i class="fab fa-instagram text-lg"></i></div>
                     <div>
                         <div class="text-xs text-slate-500 font-semibold uppercase">Instagram</div>
-                        <a href="https://instagram.com/username_kamu" id="display-instagram" target="_blank" class="text-sm text-white hover:text-pink-400 transition-colors">@username_kamu</a>
+                        <a href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" id="display-instagram" target="_blank" class="text-sm text-white hover:text-pink-400 transition-colors">@dnuu.__</a>
                     </div>
                 </div>
             </div>
@@ -461,55 +549,13 @@
             <div class="flex flex-wrap justify-center gap-4 pt-4">
                 <a id="link-email" href="mailto:mahendradanu895@gmail.com" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2"><i class="fas fa-paper-plane"></i> Kirim Email</a>
                 <a id="link-wa" href="https://wa.me/6281548433270" target="_blank" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
-                <a id="link-ig" href="https://instagram.com/username_kamu" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-medium rounded-lg text-sm transition-all flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram</a>
+                <a id="link-ig" href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-medium rounded-lg text-sm transition-all flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram</a>
             </div>
         </div>
     </section>
 
-    <!-- Panel Editor Modal Overlay -->
-    <div id="config-panel" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
-        <div class="glass-card max-w-md w-full rounded-2xl border border-slate-800 p-6 space-y-4 shadow-2xl">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fas fa-sliders text-sky-400"></i> Panel Editor Portofolio</h3>
-                <button onclick="toggleConfigPanel()" class="text-slate-400 hover:text-white cursor-pointer"><i class="fas fa-times"></i></button>
-            </div>
-            
-            <div class="space-y-3 text-sm">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Nama Lengkap</label>
-                    <input type="text" id="input-name" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-sky-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Link File CV (URL)</label>
-                    <input type="text" id="input-cv" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-sky-500" placeholder="Contoh: cv-kamu.pdf atau link Google Drive">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Deskripsi / Bio Singkat</label>
-                    <textarea id="input-bio" rows="4" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-sky-500 resize-none"></textarea>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Email</label>
-                    <input type="email" id="input-email" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-sky-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Nomor WhatsApp</label>
-                    <input type="text" id="input-phone" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-sky-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Username Instagram</label>
-                    <input type="text" id="input-instagram" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-sky-500">
-                </div>
-            </div>
-
-            <div class="flex gap-3 pt-2">
-                <button onclick="toggleConfigPanel()" class="flex-1 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-xl transition-colors cursor-pointer">Batal</button>
-                <button onclick="saveConfiguration()" class="flex-1 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/20 cursor-pointer">Simpan Perubahan</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript Logika & Sinkronisasi -->
     <script>
+        // Logika Menu Hamburger di HP
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -523,77 +569,39 @@
             }
         }
 
-        function toggleConfigPanel() {
-            const panel = document.getElementById('config-panel');
-            panel.classList.toggle('hidden');
+        // Logika Filter Proyek ala Vercel
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.project-filter-btn');
+            
+            // Atur ulang status aktif semua tombol
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-sky-500', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700/50');
+            });
+            
+            // Ubah tombol yang aktif diklik
+            const activeBtn = event.currentTarget;
+            activeBtn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700/50');
+            activeBtn.classList.add('active', 'bg-sky-500', 'text-white');
 
-            if (!panel.classList.contains('hidden')) {
-                document.getElementById('input-name').value = document.getElementById('display-name').innerText;
-                document.getElementById('input-bio').value = document.getElementById('display-bio').innerText;
-                document.getElementById('input-email').value = document.getElementById('display-email').innerText;
-                document.getElementById('input-phone').value = document.getElementById('display-phone').innerText;
-                
-                document.getElementById('input-cv').value = localStorage.getItem('portfolio_cv') || document.getElementById('display-cv-btn').getAttribute('href');
-                
-                let currentIg = document.getElementById('display-instagram').innerText;
-                document.getElementById('input-instagram').value = currentIg.startsWith('@') ? currentIg.substring(1) : currentIg;
-            }
+            // Menyembunyikan dan Memunculkan Kartu Proyek dengan Animasi
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => { 
+                        card.style.opacity = '1'; 
+                        card.style.transform = 'scale(1)'; 
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => { 
+                        card.style.display = 'none'; 
+                    }, 200);
+                }
+            });
         }
-
-        function saveConfiguration() {
-            const name = document.getElementById('input-name').value;
-            const bio = document.getElementById('input-bio').value;
-            const email = document.getElementById('input-email').value;
-            const phone = document.getElementById('input-phone').value;
-            const instagram = document.getElementById('input-instagram').value;
-            const cvLink = document.getElementById('input-cv').value;
-
-            localStorage.setItem('portfolio_name', name);
-            localStorage.setItem('portfolio_bio', bio);
-            localStorage.setItem('portfolio_email', email);
-            localStorage.setItem('portfolio_phone', phone);
-            localStorage.setItem('portfolio_instagram', instagram);
-            localStorage.setItem('portfolio_cv', cvLink);
-
-            applyLoadedData();
-            toggleConfigPanel();
-        }
-
-        function applyLoadedData() {
-            if (localStorage.getItem('portfolio_name')) {
-                document.getElementById('display-name').innerText = localStorage.getItem('portfolio_name');
-            }
-            if (localStorage.getItem('portfolio_bio')) {
-                document.getElementById('display-bio').innerHTML = localStorage.getItem('portfolio_bio').replace(/\n/g, '<br>');
-            }
-            if (localStorage.getItem('portfolio_cv')) {
-                const cvUrl = localStorage.getItem('portfolio_cv');
-                document.getElementById('display-cv-btn').setAttribute('href', cvUrl);
-                document.getElementById('display-cv-card-btn').setAttribute('href', cvUrl);
-            }
-            if (localStorage.getItem('portfolio_email')) {
-                const email = localStorage.getItem('portfolio_email');
-                document.getElementById('display-email').innerText = email;
-                document.getElementById('display-email').href = "mailto:" + email;
-                document.getElementById('link-email').href = "mailto:" + email;
-            }
-            if (localStorage.getItem('portfolio_phone')) {
-                const phone = localStorage.getItem('portfolio_phone');
-                document.getElementById('display-phone').innerText = phone;
-                
-                let cleanPhone = phone.replace(/\D/g, '');
-                if (cleanPhone.startsWith('0')) cleanPhone = '62' + cleanPhone.substring(1);
-                document.getElementById('link-wa').href = "https://wa.me/" + cleanPhone;
-            }
-            if (localStorage.getItem('portfolio_instagram')) {
-                const ig = localStorage.getItem('portfolio_instagram').replace('@', '');
-                document.getElementById('display-instagram').innerText = '@' + ig;
-                document.getElementById('display-instagram').href = "https://instagram.com/" + ig;
-                document.getElementById('link-ig').href = "https://instagram.com/" + ig;
-            }
-        }
-
-        window.onload = applyLoadedData;
     </script>
 </body>
 </html>
