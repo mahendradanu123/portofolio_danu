@@ -225,6 +225,9 @@
                 <button onclick="filterProjects('backend')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
                     Backend / System
                 </button>
+                <button onclick="filterProjects('animation')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                    3D Animation
+                </button>
             </div>
 
             <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
@@ -253,12 +256,15 @@
                     </div>
                 </div>
 
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+               <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
                             <span class="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Web Application</span>
                             <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://github.com/mahendradanu123/web-profil-desa-kalimati" target="_blank" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/mahendradanu123/web-profil-desa-kalimati" target="_blank" class="hover:text-white transition-colors" title="GitHub Source Code"><i class="fab fa-github"></i></a>
+                                <a href="https://mahendradanu123.github.io/web-profil-desa-kalimati/" target="_blank" class="hover:text-emerald-400 transition-colors" title="Buka Aplikasi Langsung">
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
                             </div>
                         </div>
                         <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Web Profil Desa Kalimati</h3>
@@ -271,8 +277,14 @@
                             <li>Desain antarmuka responsif untuk memudahkan akses warga lokal.</li>
                         </ul>
                     </div>
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-emerald-400 text-xs"></i> PHP, MySQL, Bootstrap / Tailwind</div>
+                    
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
+                            <i class="fas fa-layer-group text-emerald-400 text-xs"></i> PHP, MySQL, Bootstrap / Tailwind
+                        </div>
+                        <a href="https://mahendradanu123.github.io/web-profil-desa-kalimati/" target="_blank" class="px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-emerald-500/20 text-center">
+                            <i class="fas fa-play text-[9px]"></i> Buka Website
+                        </a>
                     </div>
                 </div>
 
@@ -299,39 +311,163 @@
                     </div>
                 </div>
 
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="3d-game">
-    <div class="p-6 space-y-4">
-        <div class="flex items-center justify-between">
-            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Animation</span>
-            <!-- Tautan ikon ke Google Drive -->
-            <div class="flex gap-2 text-slate-400 text-sm">
-                <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="hover:text-amber-400 transition-colors" title="Buka Video di Google Drive">
-                    <i class="fas fa-external-link-alt text-xs"></i>
-                </a>
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="animation">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Animation</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="hover:text-amber-400 transition-colors" title="Buka Video di Google Drive">
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Animasi Bola Berekor 3D</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Simulasi gerakan mekanika fluida dan prinsip dasar animasi (Squash & Stretch) pada objek berekor.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Pemodelan mesh 3D struktur bola dan pelengkap ekor.</li>
+                            <li>Penerapan teknik keyframing untuk simulasi gerak realistis.</li>
+                            <li>Proses rendering pencahayaan serta tekstur material di Blender.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
+                            <i class="fas fa-layer-group text-amber-500 text-xs"></i> Blender 3D, Cycles Render
+                        </div>
+                        <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500 text-amber-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-amber-500/20 text-center">
+                            <i class="fas fa-play text-[9px]"></i> Tonton Video
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://mahendradanu123.github.io/compress_video/" target="_blank" class="hover:text-white transition-colors" title="Buka Aplikasi Langsung">
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-teal-400 transition-colors">Video Compressor Web App</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Aplikasi kompresi video instan berbasis web yang memanfaatkan teknologi WebAssembly untuk memproses video langsung di browser pengguna tanpa melalui server pihak ketiga.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Integrasi perpustakaan pengolahan media tingkat lanjut menggunakan FFmpeg.wasm.</li>
+                            <li>Fitur kustomisasi kualitas video menggunakan slider kontrol parameter CRF (Constant Rate Factor).</li>
+                            <li>Indikator visual kemajuan pemrosesan file secara real-time yang interaktif.</li>
+                            <li>Keamanan privasi data terjamin penuh karena seluruh eksekusi berjalan lokal di sisi klien.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
+                            <i class="fas fa-layer-group text-teal-400 text-xs"></i> HTML5, Tailwind CSS, FFmpeg.wasm
+                        </div>
+                        <a href="https://mahendradanu123.github.io/compress_video/" target="_blank" class="px-3 py-1.5 bg-teal-500/10 hover:bg-teal-500 text-teal-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-teal-500/20 text-center">
+                            <i class="fas fa-play text-[9px]"></i> Buka Website
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://github.com/mahendradanu123/konverter_foto" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://mahendradanu123.github.io/konverter_foto/" target="_blank" class="hover:text-indigo-400 transition-colors" title="Buka Aplikasi Langsung">
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">PNG to JPG Converter</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Aplikasi web utilitas untuk mengubah format gambar PNG menjadi JPEG secara instan dengan algoritma khusus penanganan lapisan transparansi alpha-channel secara lokal.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Integrasi fitur interaktif Drag & Drop area serta pembacaan file lokal instan via FileReader API.</li>
+                            <li>Manipulasi piksel menggunakan HTML5 Canvas untuk merestorasi background transparansi menjadi warna putih solid.</li>
+                            <li>Sistem rendering client-side murni yang menjamin keamanan privasi data gambar karena tanpa proses unggah ke server.</li>
+                            <li>Ekspor hasil konversi otomatis ke ekstensi file .jpg dengan pengaturan kompresi kualitas maksimum.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
+                            <i class="fas fa-layer-group text-indigo-400 text-xs"></i> HTML5, Vanilla JS, CSS3 / Modern UI
+                        </div>
+                        <a href="https://mahendradanu123.github.io/konverter_foto/" target="_blank" class="px-3 py-1.5 bg-indigo-500/10 hover:bg-indigo-500 text-indigo-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-indigo-500/20 text-center">
+                            <i class="fas fa-play text-[9px]"></i> Buka Website
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://mahendradanu123.github.io/perpustakaan_smk/" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://mahendradanu123.github.io/perpustakaan_smk/" target="_blank" class="hover:text-sky-400 transition-colors" title="Buka Aplikasi Langsung">
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">Digital Library Management System</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Aplikasi web manajemen koleksi perpustakaan sekolah yang mendukung operasi CRUD data buku secara dinamis langsung dari antarmuka pengguna.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Implementasi penuh operasi CRUD (Create, Read, Update, Delete) data koleksi buku sekolah secara real-time.</li>
+                            <li>Penyimpanan data persisten berbasis client-side dengan memanfaatkan HTML5 Web Storage (LocalStorage API).</li>
+                            <li>Fitur modal pop-up form interaktif yang bersifat reusable untuk penambahan maupun pembaruan data.</li>
+                            <li>Sistem pengelompokan visual menggunakan manajemen badge status peminjaman dan tag kategori jurusan (TKJ, AKL, TKR, UMUM).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
+                            <i class="fas fa-layer-group text-sky-400 text-xs"></i> HTML5, Vanilla JS, CSS3 / Grid Layout
+                        </div>
+                        <a href="https://mahendradanu123.github.io/perpustakaan_smk/" target="_blank" class="px-3 py-1.5 bg-sky-500/10 hover:bg-sky-500 text-sky-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-sky-500/20 text-center">
+                            <i class="fas fa-play text-[9px]"></i> Buka Website
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-400 text-sm">
+                                <a href="https://github.com/mahendradanu123" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://mahendradanu123.github.io/e-commerce/" target="_blank" class="hover:text-sky-400 transition-colors" title="Buka Aplikasi Langsung"><i class="fas fa-external-link-alt text-xs"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">VelocePOS — Premium Cashier Dashboard</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Aplikasi Point of Sales (POS) dan Enterprise Analytics Dashboard interaktif yang mengimplementasikan arsitektur manajemen state data secara terpusat di sisi klien.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                            <li>Arsitektur kode berbasis State-Driven Component untuk efisiensi sinkronisasi data antar komponen.</li>
+                            <li>Modul kasir fungsional lengkap dengan deteksi pencarian produk waktu-nyata, filter kategori, dan manajemen keranjang.</li>
+                            <li>Integrasi perpustakaan Chart.js untuk visualisasi grafik akumulasi omset omzet mingguan secara dinamis.</li>
+                            <li>Mekanisme retensi data transaksi persisten memanfaatkan sinkronisasi berkala dengan HTML5 Web Storage.</li>
+                        </ul>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
+                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0"><i class="fas fa-layer-group text-sky-400 text-xs"></i> Vanilla JS (State Architecture), Chart.js, Tailwind CSS</div>
+                        <a href="https://mahendradanu123.github.io/e-commerce/" target="_blank" class="px-3 py-1.5 bg-sky-500/10 hover:bg-sky-500 text-sky-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-sky-500/20 text-center"><i class="fas fa-play text-[9px]"></i> Buka Website</a>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Animasi Bola Berekor 3D</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">
-            Simulasi gerakan mekanika fluida dan prinsip dasar animasi (Squash & Stretch) pada objek berekor.
-        </p>
-        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-            <li>Pemodelan mesh 3D struktur bola dan pelengkap ekor.</li>
-            <li>Penerapan teknik keyframing untuk simulasi gerak realistis.</li>
-            <li>Proses rendering pencahayaan serta tekstur material di Blender.</li>
-        </ul>
-    </div>
-    
-    <!-- Bagian Footer Kartu dengan Informasi Tech Stack & Tombol Tonton -->
-    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
-        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
-            <i class="fas fa-layer-group text-amber-500 text-xs"></i> Blender 3D, Cycles Render
-        </div>
-        <!-- Tombol Interaktif untuk Membuka Video -->
-        <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500 text-amber-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-amber-500/20 text-center">
-            <i class="fas fa-play text-[9px]"></i> Tonton Video
-        </a>
-    </div>
-</div>
+            
 
             </div>
         </div>
@@ -514,42 +650,50 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-slate-900/40 border-t border-slate-900">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+   <section id="contact" class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
             <div class="space-y-2">
                 <h2 class="text-3xl font-bold text-white">Hubungi Saya</h2>
                 <p class="text-sm text-slate-400 max-w-sm mx-auto">Ada proyek yang mau didiskusikan? Silakan hubungi saya.</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
             
-            <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div class="grid sm:grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                 <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left">
-                    <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center"><i class="fas fa-envelope"></i></div>
-                    <div>
-                        <div class="text-xs text-slate-500 font-semibold uppercase">Email</div>
-                        <a href="mailto:mahendradanu895@gmail.com" id="display-email" class="text-sm text-white hover:text-sky-400 transition-colors">mahendradanu895@gmail.com</a>
+                    <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope"></i></div>
+                    <div class="min-w-0">
+                        <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Email</div>
+                        <a href="mailto:mahendradanu895@gmail.com" id="display-email" class="text-xs text-white hover:text-sky-400 transition-colors truncate block">mahendradanu895@gmail.com</a>
                     </div>
                 </div>
                 <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center"><i class="fas fa-phone"></i></div>
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone"></i></div>
                     <div>
-                        <div class="text-xs text-slate-500 font-semibold uppercase">Nomor HP / WA</div>
-                        <span id="display-phone" class="text-sm text-white">081548433270</span>
+                        <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Nomor HP / WA</div>
+                        <span id="display-phone" class="text-xs text-white">081548433270</span>
                     </div>
                 </div>
                 <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left">
-                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center"><i class="fab fa-instagram text-lg"></i></div>
+                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center flex-shrink-0"><i class="fab fa-instagram text-lg"></i></div>
                     <div>
-                        <div class="text-xs text-slate-500 font-semibold uppercase">Instagram</div>
-                        <a href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" id="display-instagram" target="_blank" class="text-sm text-white hover:text-pink-400 transition-colors">@dnuu.__</a>
+                        <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Instagram</div>
+                        <a href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" id="display-instagram" target="_blank" class="text-xs text-white hover:text-pink-400 transition-colors">@dnuu.__</a>
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left border border-slate-800 hover:border-slate-700 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-slate-700/20 text-white flex items-center justify-center flex-shrink-0"><i class="fab fa-github text-lg"></i></div>
+                    <div>
+                        <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">GitHub</div>
+                        <a href="https://github.com/mahendradanu123" target="_blank" class="text-xs text-white hover:text-sky-400 transition-colors">mahendradanu123</a>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <div class="flex flex-wrap justify-center gap-3 pt-4">
                 <a id="link-email" href="mailto:mahendradanu895@gmail.com" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2"><i class="fas fa-paper-plane"></i> Kirim Email</a>
                 <a id="link-wa" href="https://wa.me/6281548433270" target="_blank" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
                 <a id="link-ig" href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-medium rounded-lg text-sm transition-all flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram</a>
+                <a id="link-github" href="https://github.com/mahendradanu123" target="_blank" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2 border border-slate-700/50"><i class="fab fa-github text-base"></i> GitHub</a>
             </div>
         </div>
     </section>
