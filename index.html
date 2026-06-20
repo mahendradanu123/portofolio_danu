@@ -1,86 +1,234 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bettanuary Danu M.P. | Portofolio</title>
+    <!-- Tailwind CSS v4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome & DevIcon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <style>
+    
+    <style type="text/tailwindcss">
+        @variant dark (&:where(.dark, .dark *));
+
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: var(--scroll-track); }
+        ::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
         
+        :root {
+            --bg-main: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-border: rgba(15, 23, 42, 0.08);
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --section-about: rgba(241, 245, 249, 0.8);
+            --scroll-track: #f1f5f9;
+            --scroll-thumb: #cbd5e1;
+            --glow-color: rgba(14, 165, 233, 0.05);
+            --timeline-line: #cbd5e1;
+        }
+
+        html.dark {
+            --bg-main: #0b0f19;
+            --text-main: #cbd5e1;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --nav-bg: rgba(11, 15, 25, 0.8);
+            --section-about: rgba(15, 23, 42, 0.3);
+            --scroll-track: #0f172a;
+            --scroll-thumb: #1e293b;
+            --glow-color: rgba(14, 165, 233, 0.1);
+            --timeline-line: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
+            background: var(--card-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            transition: background 0.4s ease, border 0.4s ease, transform 0.3s ease;
         }
+
+        /* Desain kustom kursor ketikan */
+        .typewriter-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ANIMASI BINGKAI FOTO PROFIL BERPUTAR */
+        @keyframes rotate-gradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse-gentle {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(14, 165, 233, 0.2)); }
+            50% { transform: scale(1.02); filter: drop-shadow(0 0 25px rgba(99, 102, 241, 0.4)); }
+        }
+        .animated-frame {
+            position: relative;
+            animation: pulse-gentle 4s ease-in-out infinite;
+        }
+        .animated-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(to right, #0ea5e9, #6366f1, #3b82f6, #a855f7);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotate-gradient 6s linear infinite;
+        }
+
+        /* ANIMASI KUSTOM KARTU PROYEK */
+        @keyframes radar-pulse {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+        .radar-ring { animation: radar-pulse 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+        @keyframes sun-rise {
+            0%, 100% { transform: translateY(12px); opacity: 0.8; }
+            50% { transform: translateY(-4px); opacity: 1; filter: drop-shadow(0 0 8px #f59e0b); }
+        }
+        .sun-animation { animation: sun-rise 4s ease-in-out infinite; }
+
+        @keyframes heart-pulse {
+            0%, 100%, 80% { transform: scale(1); }
+            40% { transform: scale(1.2); }
+            60% { transform: scale(1.1); }
+        }
+        .heart-beat { animation: heart-pulse 1.2s infinite; }
+
+        @keyframes ball-bounce {
+            0%, 100% { transform: translateY(-15px) scaleY(1); }
+            45% { transform: translateY(18px) scaleY(1); }
+            50% { transform: translateY(22px) scaleY(0.75) scaleX(1.2); }
+            55% { transform: translateY(15px) scaleY(1.15) scaleX(0.9); }
+        }
+        @keyframes tail-flow {
+            0%, 100% { transform: rotate(10deg); }
+            50% { transform: rotate(-25deg); }
+        }
+        .bouncing-ball { animation: ball-bounce 1.5s infinite ease-in-out; }
+        .ball-tail { animation: tail-flow 0.75s infinite ease-in-out alternate; }
+
+        @keyframes compress-funnel {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(0.65, 0.4) translateY(10px); }
+        }
+        .compressing-file { animation: compress-funnel 2.5s infinite ease-in-out; }
+
+        @keyframes morph-file {
+            0%, 100% { transform: translateX(-20px); opacity: 0; }
+            30%, 70% { transform: translateX(0); opacity: 1; }
+            45% { filter: hue-rotate(90deg); }
+            90% { transform: translateX(20px); opacity: 0; }
+        }
+        .morphing-file { animation: morph-file 3s infinite ease-in-out; }
+
+        @keyframes page-turn {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(-180deg); }
+        }
+        .turning-page {
+            transform-origin: left;
+            animation: page-turn 2s infinite ease-in-out;
+            perspective: 1000px;
+        }
+
+        @keyframes scanner-swipe {
+            0% { transform: translateY(-30px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(30px); opacity: 0; }
+        }
+        .laser-line { animation: scanner-swipe 2.2s infinite linear; }
     </style>
 </head>
-<body class="bg-[#0b0f19] text-slate-200 font-sans antialiased selection:bg-sky-500 selection:text-white">
+<body class="font-sans antialiased selection:bg-sky-500 selection:text-white">
 
+    <!-- Efek Pendar Latar Belakang -->
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
-        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-sky-500/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-indigo-500/10 rounded-full blur-[120px]"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full blur-[120px] transition-colors duration-500" style="background-color: var(--glow-color);"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full blur-[120px] transition-colors duration-500" style="background-color: var(--glow-color);"></div>
     </div>
 
-    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/50">
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-200/50 dark:border-slate-800/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-bold tracking-wider text-white">PORTOFOLIO<span class="text-sky-400">.</span></div>
+            <div class="text-xl font-bold tracking-wider text-sky-500 dark:text-sky-400">Danuuuuu<span class="text-indigo-500 dark:text-indigo-400">.</span></div>
             
-            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-400">
-                <a href="#home" class="hover:text-sky-400 transition-colors">Home</a>
-                <a href="#about" class="hover:text-sky-400 transition-colors">About Me</a>
-                <a href="#resume" class="hover:text-sky-400 transition-colors">Pendidikan</a>
-                <a href="#projects" class="hover:text-sky-400 transition-colors">Proyek</a>
-                <a href="#cv" class="hover:text-sky-400 transition-colors">CV / Resume</a>
-                <a href="#certificates" class="hover:text-sky-400 transition-colors">Sertifikat</a>
-                <a href="#contact" class="hover:text-sky-400 transition-colors">Kontak</a>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600 dark:text-slate-400">
+                <a href="#home" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">About Me</a>
+                <a href="#resume" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Pendidikan</a>
+                <a href="#projects" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Proyek</a>
+                <a href="#cv" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">CV / Resume</a>
+                <a href="#certificates" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Sertifikat</a>
+                <a href="#contact" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Kontak</a>
             </nav>
             
-            <div class="flex items-center gap-3">
-                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-400 hover:text-white text-xl p-2 focus:outline-none cursor-pointer" aria-label="Toggle Menu">
+            <!-- Tombol Pengubah Tema & Menu Hamburger -->
+            <div class="flex items-center gap-4">
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-200/60 dark:bg-slate-800/40 hover:bg-slate-300 dark:hover:bg-slate-800 text-sky-500 dark:text-sky-400 flex items-center justify-center cursor-pointer transition-all border border-slate-300/40 dark:border-slate-700/30" aria-label="Toggle Theme">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-xl p-2 focus:outline-none cursor-pointer" aria-label="Toggle Menu">
                     <i id="hamburger-icon" class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/50 bg-[#0b0f19]/95 backdrop-blur-lg px-6 py-4 space-y-4 shadow-xl">
-            <a href="#home" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">About Me</a>
-            <a href="#resume" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Pendidikan</a>
-            <a href="#projects" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Proyek</a>
-            <a href="#cv" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">CV / Resume</a>
-            <a href="#certificates" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Sertifikat</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-sky-400 font-medium transition-colors">Kontak</a>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-lg px-6 py-4 space-y-4 shadow-xl">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors">About Me</a>
+            <a href="#resume" onclick="toggleMobileMenu()" class="block text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors">Pendidikan</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors">Proyek</a>
+            <a href="#cv" onclick="toggleMobileMenu()" class="block text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors">CV / Resume</a>
+            <a href="#certificates" onclick="toggleMobileMenu()" class="block text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors">Sertifikat</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors">Kontak</a>
         </div>
     </header>
 
     <section id="home" class="min-h-[calc(100vh-5rem)] flex items-center max-w-7xl mx-auto px-6 py-12">
         <div class="grid md:grid-cols-12 gap-12 items-center w-full">
             <div class="md:col-span-7 space-y-6 order-2 md:order-1">
-                <h3 class="text-lg font-medium text-slate-400">Halo, saya</h3>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
-                    <span id="display-name" class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Bettanuary Danu Mahendra Putra</span>
+                <h3 class="text-lg font-medium text-slate-500 dark:text-slate-400">Halo, saya</h3>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight min-h-[140px] sm:min-h-auto">
+                    <span id="display-name" class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-indigo-600 dark:from-sky-400 dark:to-indigo-400 typewriter-cursor"></span>
                 </h1>
-                <p class="text-slate-400 text-lg max-w-xl leading-relaxed">
+                <p class="text-slate-600 dark:text-slate-400 text-lg max-w-xl leading-relaxed">
                     Saya seorang Mahasiswa Rekayasa Perangkat Lunak
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
                     <a id="display-cv-btn" href="cv.png" target="_blank" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/20 transform hover:-translate-y-0.5 flex items-center gap-2">
                         <i class="fas fa-file-pdf"></i> Download CV / Resume
                     </a>
-                    <a href="#projects" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl transition-all border border-slate-700">Lihat Projek</a>
+                    <a href="#projects" class="px-6 py-3 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all border border-slate-300/60 dark:border-slate-700">Lihat Projek</a>
                 </div>
             </div>
             
             <div class="md:col-span-5 flex flex-col items-center justify-center order-1 md:order-2">
-                <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-2 bg-gradient-to-tr from-sky-500 to-indigo-500 shadow-2xl shadow-sky-500/10">
-                    <div class="w-full h-full rounded-full bg-slate-900 overflow-hidden relative flex items-center justify-center">
+                <div class="animated-frame w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-2.5">
+                    <div class="w-full h-full rounded-full bg-slate-100 dark:bg-slate-900 overflow-hidden relative flex items-center justify-center z-10 border border-slate-300/30 dark:border-transparent">
                         <img id="profile-img" src="profil.jpeg" alt="Foto Profil" class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -88,75 +236,76 @@
         </div>
     </section>
 
-    <section id="about" class="py-24 border-t border-slate-900 bg-slate-900/30">
+    <section id="about" class="py-24 border-t border-slate-200 dark:border-slate-900" style="background-color: var(--section-about);">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center space-y-2 mb-12">
-                <h2 class="text-3xl font-bold text-white">About Me</h2>
-                <p class="text-sm text-sky-400 uppercase tracking-widest">Kenalan Lebih Dekat</p>
+                <!-- Dipastikan warna text-slate-900 sangat jelas pada mode terang -->
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">About Me</h2>
+                <p class="text-sm text-sky-500 dark:text-sky-400 uppercase tracking-widest">Kenalan Lebih Dekat</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
             
             <div class="space-y-16">
-                <div class="glass-card p-8 rounded-2xl border border-slate-800 shadow-xl">
-                    <p id="display-bio" class="text-slate-400 text-base leading-relaxed text-justify sm:text-left">
+                <div class="glass-card p-8 rounded-2xl border shadow-xl">
+                    <p id="display-bio" class="text-slate-600 dark:text-slate-400 text-base leading-relaxed text-justify sm:text-left">
                         Saya merupakan seorang mahasiswa aktif semester 6 Program studi Teknologi Rekayasa Perangkat Lunak di Universitas Duta Bangsa Surakarta yang berfokus pada pengembangan perangkat lunak seperti website, aplikasi, game dan juga animasi 3D. Memiliki pemahaman dalam manajemen basis data (PHP/MySQL). <br><br>
                         Sebagai seorang mahasiswa, saya terus belajar dan berinovasi untuk menghadapi tantangan di dunia teknologi yang terus berkembang. Saya memiliki minat yang besar dalam pengembangan perangkat lunak, terutama dalam pembuatan aplikasi mobile menggunakan Flutter, serta pengembangan website dengan CodeIgniter atau framework backend modern lainnya. Selain itu, saya juga memiliki ketertarikan dalam dunia animasi 3D menggunakan Blender, yang memungkinkan saya untuk menggabungkan kreativitas dengan teknologi. <br><br>
                     </p>
                 </div>
 
                 <div class="space-y-8">
-                    <h3 class="text-xl font-bold text-white flex items-center justify-center gap-2">
-                        <i class="fas fa-code text-sky-400"></i> Tech Skills & Tools
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-2">
+                        <i class="fas fa-code text-sky-500 dark:text-sky-400"></i> Tech Skills & Tools
                     </h3>
                     
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-html5-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">HTML5</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">HTML5</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-css3-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">CSS3</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">CSS3</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-javascript-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">JavaScript</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">JavaScript</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-sky-600/50 hover:shadow-lg hover:shadow-sky-600/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-sky-600/50 hover:shadow-lg hover:shadow-sky-600/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-mysql-plain-wordmark colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">MySQL</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">MySQL</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-indigo-400/50 hover:shadow-lg hover:shadow-indigo-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-indigo-400/50 hover:shadow-lg hover:shadow-indigo-400/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-php-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">PHP</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">PHP</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-sky-400/50 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-sky-400/50 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-tailwindcss-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Tailwind CSS</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">Tailwind CSS</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-400/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-go-original-wordmark colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Go (Golang)</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">Go (Golang)</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-flutter-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Flutter</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">Flutter</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-orange-400/50 hover:shadow-lg hover:shadow-orange-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-orange-400/50 hover:shadow-lg hover:shadow-orange-400/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-blender-original colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Blender 3D</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">Blender 3D</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-csharp-plain colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">C# Script</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">C# Script</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-slate-400/50 hover:shadow-lg hover:shadow-slate-400/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-slate-400/50 hover:shadow-lg hover:shadow-slate-400/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="devicon-unity-original colored text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">Unity 3D</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">Unity 3D</span>
                         </div>
-                        <div class="glass-card p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3 group hover:border-pink-500/50 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 group hover:border-pink-500/50 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 transform hover:-translate-y-1">
                             <i class="fas fa-bezier-curve text-pink-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="text-xs font-semibold tracking-wide text-slate-300 group-hover:text-white">UI/UX Wireframe</span>
+                            <span class="text-xs font-semibold tracking-wide text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">UI/UX Wireframe</span>
                         </div>
                     </div>
                 </div>
@@ -164,40 +313,40 @@
         </div>
     </section>
 
-    <!-- Riwayat Pendidikan Section -->
     <section id="resume" class="py-24 max-w-5xl mx-auto px-6">
         <div class="text-center space-y-2 mb-16">
-            <h2 class="text-3xl font-bold text-white">Riwayat Pendidikan</h2>
-            <p class="text-sm text-sky-400 uppercase tracking-widest">Latar Belakang Akademis</p>
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Riwayat Pendidikan</h2>
+            <p class="text-sm text-sky-500 dark:text-sky-400 uppercase tracking-widest">Latar Belakang Akademis</p>
             <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
         </div>
         <div class="grid md:grid-cols-12 gap-8">
             <div class="md:col-span-4 space-y-2">
-                <div class="border-l-4 border-sky-500 bg-slate-900/50 p-4 rounded-r-xl">
-                    <h3 class="font-bold text-white flex items-center gap-2"><i class="fas fa-graduation-cap text-sky-400"></i> Akademik</h3>
+                <div class="border-l-4 border-sky-500 bg-slate-200 dark:bg-slate-900/50 p-4 rounded-r-xl">
+                    <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2"><i class="fas fa-graduation-cap text-sky-500 dark:text-sky-400"></i> Akademik</h3>
                 </div>
             </div>
-            <div class="md:col-span-8 space-y-8 relative before:absolute before:top-0 before:left-4 before:w-0.5 before:h-full before:bg-slate-800">
+            
+            <div class="md:col-span-8 space-y-8 relative before:absolute before:top-0 before:left-4 before:w-0.5 before:h-full before:bg-slate-200 dark:before:bg-slate-800">
                 
-                <!-- Pendidikan 1: Kuliah (Terbaru) -->
+                <!-- Pendidikan 1: Kuliah -->
                 <div class="relative pl-10 group">
                     <div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-500 group-hover:scale-125 transition-transform shadow shadow-sky-500"></div>
-                    <div class="glass-card p-6 rounded-xl border border-slate-800">
-                        <span class="text-xs font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-full">2023 - Sekarang</span>
-                        <h4 class="text-lg font-bold text-white mt-3">Diploma IV / Sarjana Terapan - Teknologi Rekayasa Perangkat Lunak</h4>
-                        <p class="text-sm text-slate-400 font-medium">Fakultas Ilmu Komputer / Universitas Duta Bangsa Surakarta</p>
-                        <p class="text-xs text-slate-500 mt-2">Fokus mempelajari siklus pengembangan software, manajemen basis data relasional, pembuatan Animasi 3D, pengujian perangkat lunak, serta arsitektur sistem berbasis web dan mobile.</p>
+                    <div class="glass-card p-6 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-full">2023 - Sekarang</span>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mt-3">Diploma IV / Sarjana Terapan - Teknologi Rekayasa Perangkat Lunak</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">Fakultas Ilmu Komputer / Universitas Duta Bangsa Surakarta</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Fokus mempelajari siklus pengembangan software, manajemen basis data relasional, pembuatan Animasi 3D, pengujian perangkat lunak, serta arsitektur sistem berbasis web dan mobile.</p>
                     </div>
                 </div>
 
                 <!-- Pendidikan 2: SMK -->
                 <div class="relative pl-10 group">
-                    <div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 group-hover:bg-sky-500 group-hover:scale-125 transition-all shadow shadow-slate-500"></div>
-                    <div class="glass-card p-6 rounded-xl border border-slate-800">
-                        <span class="text-xs font-bold text-slate-400 bg-slate-800 px-2.5 py-1 rounded-full group-hover:text-sky-400 group-hover:bg-sky-500/10 transition-colors">2020 - 2023</span>
-                        <h4 class="text-lg font-bold text-white mt-3">SMK - Rekayasa Perangkat Lunak (RPL)</h4>
-                        <p class="text-sm text-slate-400 font-medium">SMK Negeri 2 Surakarta</p>
-                        <p class="text-xs text-slate-500 mt-2">Fokus pada dasar-dasar pemrograman algoritma dan pembuatan web menggunakan teknologi HTML5, CSS3, pemrograman sisi server dengan PHP, serta manajemen basis data tingkat dasar.</p>
+                    <div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-400 dark:bg-slate-700 group-hover:bg-sky-500 group-hover:scale-125 transition-all shadow shadow-slate-500"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <span class="text-xs font-bold text-slate-500 dark:text-slate-400 bg-slate-200 dark:bg-slate-800 px-2.5 py-1 rounded-full group-hover:text-sky-500 dark:group-hover:text-sky-400 group-hover:bg-sky-500/10 transition-colors">2020 - 2023</span>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mt-3">SMK - Rekayasa Perangkat Lunak (RPL)</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">SMK Negeri 2 Surakarta</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Fokus pada dasar-dasar pemrograman algoritma dan pembuatan web menggunakan teknologi HTML5, CSS3, pemrograman sisi server dengan PHP, serta manajemen basis data tingkat dasar.</p>
                     </div>
                 </div>
 
@@ -205,279 +354,275 @@
         </div>
     </section>
 
-    <section id="projects" class="py-24 bg-slate-900/20 border-t border-slate-900">
+    <section id="projects" class="py-24 bg-slate-200/40 dark:bg-slate-900/20 border-t border-slate-200 dark:border-slate-900">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center space-y-2 mb-10">
-                <h2 class="text-3xl font-bold text-white">Pengalaman Proyek</h2>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Pengalaman Proyek</h2>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
 
+            <!-- Filter Kategori Proyek -->
             <div class="flex flex-wrap justify-center gap-2 mb-12">
                 <button onclick="filterProjects('all')" class="project-filter-btn active bg-sky-500 text-white px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-transparent">
                     Semua Proyek
                 </button>
-                <button onclick="filterProjects('web')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                <button onclick="filterProjects('web')" class="project-filter-btn bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-300/40 dark:border-slate-700/50">
                     Web Application
                 </button>
-                <button onclick="filterProjects('mobile')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                <button onclick="filterProjects('mobile')" class="project-filter-btn bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-300/40 dark:border-slate-700/50">
                     Mobile App
                 </button>
-                <button onclick="filterProjects('backend')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                <button onclick="filterProjects('backend')" class="project-filter-btn bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-300/40 dark:border-slate-700/50">
                     Backend / System
                 </button>
-                <button onclick="filterProjects('animation')" class="project-filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-700/50">
+                <button onclick="filterProjects('animation')" class="project-filter-btn bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer border border-slate-300/40 dark:border-slate-700/50">
                     3D Animation
                 </button>
             </div>
 
+            <!-- Grid Kontainer Proyek -->
             <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
                 
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="backend">
+                <!-- Proyek 1: SIMPEL-K -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5" data-category="backend">
+                    <div class="relative w-full h-32 bg-slate-950 flex items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="absolute w-12 h-12 bg-sky-500/10 border border-sky-500/40 rounded-full radar-ring"></div>
+                        <div class="absolute w-12 h-12 bg-sky-500/20 border border-sky-500/60 rounded-full radar-ring" style="animation-delay: 1s"></div>
+                        <div class="z-10 text-sky-400 bg-sky-950/80 p-3 rounded-xl border border-sky-500/30">
+                            <i class="fas fa-headset text-xl"></i>
+                        </div>
+                        <div class="absolute bottom-2 text-[9px] text-slate-500 tracking-widest font-mono">PENGADUAN AKTIF...</div>
+                    </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Backend & System</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://github.com/rullxd/Kelompok_UAS" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
+                            <span class="text-[10px] uppercase font-bold text-sky-500 dark:text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Backend & System</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://github.com/rullxd/Kelompok_UAS" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">SIMPEL-K - Campus Complaint System</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">SIMPEL-K - Campus Complaint System</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Sistem manajemen keluhan dan layanan kampus terintegrasi yang andal, aman, dan efisien untuk mahasiswa serta admin.
                         </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
+                        <ul class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed list-disc list-inside space-y-1 pt-1">
                             <li>Otentikasi aman berbasis JWT (Login Admin & Student).</li>
                             <li>Role-based Access Control & Manajemen Complaint (CRUD).</li>
-                            <li>Fitur submit pengaduan dengan unggah file (*multipart data*).</li>
-                            <li>Dasbor analitik dilengkapi filter, pencarian, & statistik keluhan.</li>
                         </ul>
                     </div>
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-sky-400 text-xs"></i> Go (Gin), GORM, JWT, MySQL, Tailwind</div>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-sky-500 dark:text-sky-400 text-xs"></i> Go (Gin), GORM, JWT, MySQL</div>
                     </div>
                 </div>
 
-               <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+                <!-- Proyek 2: Web Profil Desa Kalimati -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5" data-category="web">
+                    <div class="relative w-full h-32 bg-slate-950 flex items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="absolute bottom-0 w-full h-10 bg-emerald-950/40 border-t border-emerald-900/30 z-10"></div>
+                        <div class="sun-animation absolute top-6 w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold">☀️</div>
+                        <i class="fas fa-mountain absolute bottom-3 text-emerald-800 text-3xl"></i>
+                        <i class="fas fa-tree absolute bottom-3 left-10 text-emerald-600 text-xl"></i>
+                        <div class="absolute bottom-1 right-3 text-[9px] text-emerald-400/80 font-mono">DESA KALIMATI</div>
+                    </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Web Application</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://github.com/mahendradanu123/web-profil-desa-kalimati" target="_blank" class="hover:text-white transition-colors" title="GitHub Source Code"><i class="fab fa-github"></i></a>
-                                <a href="https://mahendradanu123.github.io/web-profil-desa-kalimati/" target="_blank" class="hover:text-emerald-400 transition-colors" title="Buka Aplikasi Langsung">
-                                    <i class="fas fa-external-link-alt text-xs"></i>
-                                </a>
+                            <span class="text-[10px] uppercase font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://github.com/mahendradanu123/web-profil-desa-kalimati" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="GitHub Source Code"><i class="fab fa-github"></i></a>
+                                <a href="https://mahendradanu123.github.io/web-profil-desa-kalimati/" target="_blank" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors" title="Buka Aplikasi Langsung"><i class="fas fa-external-link-alt text-xs"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Web Profil Desa Kalimati</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Web Profil Desa Kalimati</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Platform informasi publik resmi untuk mengenalkan potensi wilayah, struktur organisasi, berita, serta transparansi layanan Desa Kalimati, Kabupaten Boyolali.
                         </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-                            <li>Penyajian profil geografis, demografi, dan keunggulan desa.</li>
-                            <li>Panel manajemen berita desa dan agenda kegiatan interaktif.</li>
-                            <li>Desain antarmuka responsif untuk memudahkan akses warga lokal.</li>
-                        </ul>
                     </div>
-                    
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
-                            <i class="fas fa-layer-group text-emerald-400 text-xs"></i> PHP, MySQL, Bootstrap / Tailwind
-                        </div>
-                        <a href="https://mahendradanu123.github.io/web-profil-desa-kalimati/" target="_blank" class="px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-emerald-500/20 text-center">
-                            <i class="fas fa-play text-[9px]"></i> Buka Website
-                        </a>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-emerald-600 dark:text-emerald-400 text-xs"></i> PHP, MySQL, Bootstrap</div>
+                        <a href="https://mahendradanu123.github.io/web-profil-desa-kalimati/" target="_blank" class="px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500 text-emerald-600 dark:text-emerald-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-emerald-500/20 text-center text-[10px]">Buka Website</a>
                     </div>
                 </div>
 
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="mobile">
+                <!-- Proyek 3: Donor Darah Mobile -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5" data-category="mobile">
+                    <div class="relative w-full h-32 bg-slate-950 flex items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-10">
+                            <svg class="w-full h-20 text-rose-500" viewBox="0 0 100 30" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M0,15 L30,15 L35,5 L42,28 L48,12 L52,15 L100,15" />
+                            </svg>
+                        </div>
+                        <div class="heart-beat text-rose-500 flex flex-col items-center justify-center">
+                            <i class="fas fa-heart text-4xl filter drop-shadow(0 0 10px rgba(244,63,94,0.5))"></i>
+                            <span class="text-[9px] text-rose-300 font-bold tracking-widest mt-1">PMI HELPER</span>
+                        </div>
+                    </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">Mobile Application</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://github.com/adittttttttt123/donor_darah.git" target="_blank" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                            <span class="text-[10px] uppercase font-bold text-amber-500 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">Mobile Application</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://github.com/adittttttttt123/donor_darah.git" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Aplikasi Donor Darah Mobile</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">Aplikasi Donor Darah Mobile</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Aplikasi mobile lintas platform yang memudahkan masyarakat mencari ketersediaan stok darah, mendaftar jadwal donor, serta memetakan lokasi posko donor darah terdekat.
                         </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-                            <li>Manajemen kartu donor digital dan riwayat aktivitas pengguna.</li>
-                            <li>Sistem pengingat berkala untuk donor darah kembali.</li>
-                            <li>Antarmuka UI/UX yang modern, ringan, dan responsif di Android & iOS.</li>
-                        </ul>
                     </div>
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-amber-500 text-xs"></i> Flutter, Dart, REST API</div>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-amber-500 dark:text-amber-400 text-xs"></i> Flutter, Dart, REST API</div>
                     </div>
                 </div>
 
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="animation">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Animation</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="hover:text-amber-400 transition-colors" title="Buka Video di Google Drive">
-                                    <i class="fas fa-external-link-alt text-xs"></i>
-                                </a>
+                <!-- Proyek 4: Animasi Bola Berekor 3D -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5" data-category="animation">
+                    <div class="relative w-full h-32 bg-slate-950 flex flex-col items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="absolute bottom-1 w-24 h-1.5 bg-indigo-950/60 rounded-full blur-[2px]"></div>
+                        <div class="bouncing-ball flex flex-col items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 relative">
+                                <div class="ball-tail absolute top-6 left-2 w-4 h-12 bg-gradient-to-b from-amber-500/80 to-transparent rounded-full origin-top transform rotate-12"></div>
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Animasi Bola Berekor 3D</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Simulasi gerakan mekanika fluida dan prinsip dasar animasi (Squash & Stretch) pada objek berekor.
-                        </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-                            <li>Pemodelan mesh 3D struktur bola dan pelengkap ekor.</li>
-                            <li>Penerapan teknik keyframing untuk simulasi gerak realistis.</li>
-                            <li>Proses rendering pencahayaan serta tekstur material di Blender.</li>
-                        </ul>
                     </div>
-                    
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
-                            <i class="fas fa-layer-group text-amber-500 text-xs"></i> Blender 3D, Cycles Render
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-amber-500 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">3D Animation</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="hover:text-amber-500 dark:hover:text-amber-400 transition-colors" title="Buka Video di Google Drive"><i class="fas fa-external-link-alt text-xs"></i></a>
+                            </div>
                         </div>
-                        <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500 text-amber-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-amber-500/20 text-center">
-                            <i class="fas fa-play text-[9px]"></i> Tonton Video
-                        </a>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">Animasi Bola Berekor 3D</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Simulasi gerakan mekanika fluida dan prinsip dasar animasi (Squash & Stretch) pada objek berekor di Blender.
+                        </p>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-amber-500 dark:text-amber-400 text-xs"></i> Blender 3D, Cycles Render</div>
+                        <a href="https://drive.google.com/file/d/1CeL3SfvvHC1bcgzb4VwZ7L63kUfnw2A9/view?usp=sharing" target="_blank" class="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500 text-amber-500 dark:text-amber-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-amber-500/20 text-center text-[10px]">Tonton Video</a>
                     </div>
                 </div>
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
+
+                <!-- Proyek 5: Video Compressor Web App -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5" data-category="web">
+                    <div class="relative w-full h-32 bg-slate-950 flex items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="absolute w-16 h-1 bg-teal-500/30 top-1/2"></div>
+                        <div class="compressing-file flex flex-col items-center justify-center text-teal-400">
+                            <i class="fas fa-file-video text-3xl"></i>
+                            <span class="text-[8px] font-mono mt-1 text-teal-200">240MB &rarr; 12MB</span>
+                        </div>
+                    </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md">Web Application</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://mahendradanu123.github.io/compress_video/" target="_blank" class="hover:text-white transition-colors" title="Buka Aplikasi Langsung">
-                                    <i class="fas fa-external-link-alt text-xs"></i>
-                                </a>
+                            <span class="text-[10px] uppercase font-bold text-teal-500 dark:text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://mahendradanu123.github.io/compress_video/" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="Buka Aplikasi Langsung"><i class="fas fa-external-link-alt text-xs"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-teal-400 transition-colors">Video Compressor Web App</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-500 dark:group-hover:text-teal-400 transition-colors">Video Compressor Web App</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Aplikasi kompresi video instan berbasis web yang memanfaatkan teknologi WebAssembly untuk memproses video langsung di browser pengguna tanpa melalui server pihak ketiga.
                         </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-                            <li>Integrasi perpustakaan pengolahan media tingkat lanjut menggunakan FFmpeg.wasm.</li>
-                            <li>Fitur kustomisasi kualitas video menggunakan slider kontrol parameter CRF (Constant Rate Factor).</li>
-                            <li>Indikator visual kemajuan pemrosesan file secara real-time yang interaktif.</li>
-                            <li>Keamanan privasi data terjamin penuh karena seluruh eksekusi berjalan lokal di sisi klien.</li>
-                        </ul>
                     </div>
-                    
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
-                            <i class="fas fa-layer-group text-teal-400 text-xs"></i> HTML5, Tailwind CSS, FFmpeg.wasm
-                        </div>
-                        <a href="https://mahendradanu123.github.io/compress_video/" target="_blank" class="px-3 py-1.5 bg-teal-500/10 hover:bg-teal-500 text-teal-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-teal-500/20 text-center">
-                            <i class="fas fa-play text-[9px]"></i> Buka Website
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md">Web Application</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://github.com/mahendradanu123/konverter_foto" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://mahendradanu123.github.io/konverter_foto/" target="_blank" class="hover:text-indigo-400 transition-colors" title="Buka Aplikasi Langsung">
-                                    <i class="fas fa-external-link-alt text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">PNG to JPG Converter</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Aplikasi web utilitas untuk mengubah format gambar PNG menjadi JPEG secara instan dengan algoritma khusus penanganan lapisan transparansi alpha-channel secara lokal.
-                        </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-                            <li>Integrasi fitur interaktif Drag & Drop area serta pembacaan file lokal instan via FileReader API.</li>
-                            <li>Manipulasi piksel menggunakan HTML5 Canvas untuk merestorasi background transparansi menjadi warna putih solid.</li>
-                            <li>Sistem rendering client-side murni yang menjamin keamanan privasi data gambar karena tanpa proses unggah ke server.</li>
-                            <li>Ekspor hasil konversi otomatis ke ekstensi file .jpg dengan pengaturan kompresi kualitas maksimum.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
-                            <i class="fas fa-layer-group text-indigo-400 text-xs"></i> HTML5, Vanilla JS, CSS3 / Modern UI
-                        </div>
-                        <a href="https://mahendradanu123.github.io/konverter_foto/" target="_blank" class="px-3 py-1.5 bg-indigo-500/10 hover:bg-indigo-500 text-indigo-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-indigo-500/20 text-center">
-                            <i class="fas fa-play text-[9px]"></i> Buka Website
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://mahendradanu123.github.io/perpustakaan_smk/" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://mahendradanu123.github.io/perpustakaan_smk/" target="_blank" class="hover:text-sky-400 transition-colors" title="Buka Aplikasi Langsung">
-                                    <i class="fas fa-external-link-alt text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">Digital Library Management System</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Aplikasi web manajemen koleksi perpustakaan sekolah yang mendukung operasi CRUD data buku secara dinamis langsung dari antarmuka pengguna.
-                        </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-                            <li>Implementasi penuh operasi CRUD (Create, Read, Update, Delete) data koleksi buku sekolah secara real-time.</li>
-                            <li>Penyimpanan data persisten berbasis client-side dengan memanfaatkan HTML5 Web Storage (LocalStorage API).</li>
-                            <li>Fitur modal pop-up form interaktif yang bersifat reusable untuk penambahan maupun pembaruan data.</li>
-                            <li>Sistem pengelompokan visual menggunakan manajemen badge status peminjaman dan tag kategori jurusan (TKJ, AKL, TKR, UMUM).</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0">
-                            <i class="fas fa-layer-group text-sky-400 text-xs"></i> HTML5, Vanilla JS, CSS3 / Grid Layout
-                        </div>
-                        <a href="https://mahendradanu123.github.io/perpustakaan_smk/" target="_blank" class="px-3 py-1.5 bg-sky-500/10 hover:bg-sky-500 text-sky-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-sky-500/20 text-center">
-                            <i class="fas fa-play text-[9px]"></i> Buka Website
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 transform hover:-translate-y-1" data-category="web">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
-                            <div class="flex gap-2 text-slate-400 text-sm">
-                                <a href="https://github.com/mahendradanu123" target="_blank" class="hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
-                                <a href="https://mahendradanu123.github.io/e-commerce/" target="_blank" class="hover:text-sky-400 transition-colors" title="Buka Aplikasi Langsung"><i class="fas fa-external-link-alt text-xs"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">VelocePOS — Premium Cashier Dashboard</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Aplikasi Point of Sales (POS) dan Enterprise Analytics Dashboard interaktif yang mengimplementasikan arsitektur manajemen state data secara terpusat di sisi klien.
-                        </p>
-                        <ul class="text-[11px] text-slate-500 leading-relaxed list-disc list-inside space-y-1 pt-1">
-                            <li>Arsitektur kode berbasis State-Driven Component untuk efisiensi sinkronisasi data antar komponen.</li>
-                            <li>Modul kasir fungsional lengkap dengan deteksi pencarian produk waktu-nyata, filter kategori, dan manajemen keranjang.</li>
-                            <li>Integrasi perpustakaan Chart.js untuk visualisasi grafik akumulasi omset omzet mingguan secara dinamis.</li>
-                            <li>Mekanisme retensi data transaksi persisten memanfaatkan sinkronisasi berkala dengan HTML5 Web Storage.</li>
-                        </ul>
-                    </div>
-                    <div class="p-5 pt-0 border-t border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-medium bg-slate-900/20">
-                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0"><i class="fas fa-layer-group text-sky-400 text-xs"></i> Vanilla JS (State Architecture), Chart.js, Tailwind CSS</div>
-                        <a href="https://mahendradanu123.github.io/e-commerce/" target="_blank" class="px-3 py-1.5 bg-sky-500/10 hover:bg-sky-500 text-sky-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-sky-500/20 text-center"><i class="fas fa-play text-[9px]"></i> Buka Website</a>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-teal-500 dark:text-teal-400 text-xs"></i> HTML5, Tailwind, FFmpeg.wasm</div>
+                        <a href="https://mahendradanu123.github.io/compress_video/" target="_blank" class="px-3 py-1.5 bg-teal-500/10 hover:bg-teal-500 text-teal-500 dark:text-teal-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-teal-500/20 text-center text-[10px]">Buka Website</a>
                     </div>
                 </div>
 
-            </div>
-            
+                <!-- Proyek 6: PNG to JPG Converter -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5" data-category="web">
+                    <div class="relative w-full h-32 bg-slate-950 flex items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="morphing-file flex items-center gap-3">
+                            <span class="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">PNG</span>
+                            <i class="fas fa-arrow-right text-slate-500 text-xs"></i>
+                            <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">JPG</span>
+                        </div>
+                        <i class="fas fa-image absolute text-slate-800 text-6xl -z-10 opacity-30"></i>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-indigo-500 dark:text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://github.com/mahendradanu123/konverter_foto" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://mahendradanu123.github.io/konverter_foto/" target="_blank" class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" title="Buka Aplikasi Langsung"><i class="fas fa-external-link-alt text-xs"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors">PNG to JPG Converter</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Aplikasi web utilitas untuk mengubah format gambar PNG menjadi JPEG secara instan dengan penanganan transparansi secara lokal.
+                        </p>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-indigo-500 dark:text-indigo-400 text-xs"></i> HTML5, Vanilla JS, CSS3</div>
+                        <a href="https://mahendradanu123.github.io/konverter_foto/" target="_blank" class="px-3 py-1.5 bg-indigo-500/10 hover:bg-indigo-500 text-indigo-500 dark:text-indigo-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-indigo-500/20 text-center text-[10px]">Buka Website</a>
+                    </div>
+                </div>
+
+                <!-- Proyek 7: Digital Library Management System -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5" data-category="web">
+                    <div class="relative w-full h-32 bg-slate-950 flex items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="w-10 h-12 bg-sky-500/20 border border-sky-500/50 rounded-r-md flex items-center justify-center relative">
+                            <div class="turning-page absolute top-0 left-0 w-full h-full bg-sky-600/40 border-r border-sky-400 rounded-r-md"></div>
+                            <i class="fas fa-book-reader text-sky-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-sky-500 dark:text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://github.com/mahendradanu123/perpustakaan" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://mahendradanu123.github.io/perpustakaan/" target="_blank" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors" title="Buka Aplikasi Langsung"><i class="fas fa-external-link-alt text-xs"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Digital Library Management System</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Aplikasi web manajemen koleksi perpustakaan sekolah yang mendukung operasi CRUD data buku secara dinamis langsung dari antarmuka pengguna.
+                        </p>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5"><i class="fas fa-layer-group text-sky-500 dark:text-sky-400 text-xs"></i> HTML5, Vanilla JS, CSS3</div>
+                        <a href="https://mahendradanu123.github.io/perpustakaan/" target="_blank" class="px-3 py-1.5 bg-sky-500/10 hover:bg-sky-500 text-sky-500 dark:text-sky-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-sky-500/20 text-center text-[10px]">Buka Website</a>
+                    </div>
+                </div>
+
+                <!-- Proyek 8: VelocePOS Dashboard -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5" data-category="web">
+                    <div class="relative w-full h-32 bg-slate-950 flex flex-col items-center justify-center overflow-hidden border-b border-slate-300/30 dark:border-slate-800/50">
+                        <div class="absolute w-32 h-0.5 bg-emerald-500 laser-line shadow-[0_0_10px_#10b981]"></div>
+                        <div class="flex items-end gap-1.5 mt-2">
+                            <div class="w-3 bg-emerald-500/30 rounded-t h-8"></div>
+                            <div class="w-3 bg-emerald-500/50 rounded-t h-12"></div>
+                            <div class="w-3 bg-emerald-500/80 rounded-t h-16"></div>
+                            <div class="w-3 bg-emerald-400 rounded-t h-20 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
+                        </div>
+                        <div class="absolute top-2 left-3 text-[9px] text-slate-500 tracking-wider font-mono">FINANCE ANALYTICS</div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase font-bold text-sky-500 dark:text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md">Web Application</span>
+                            <div class="flex gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                                <a href="https://github.com/mahendradanu123" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="Lihat Source Code di GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://mahendradanu123.github.io/e-commerce/" target="_blank" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors" title="Buka Aplikasi Langsung"><i class="fas fa-external-link-alt text-xs"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">VelocePOS — Premium Cashier Dashboard</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Aplikasi Point of Sales (POS) dan Enterprise Analytics Dashboard interaktif dengan arsitektur manajemen state data terpusat di sisi klien.
+                        </p>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-slate-200/50 dark:border-slate-800/40 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100/30 dark:bg-slate-900/20">
+                        <div class="flex items-center gap-1.5 pt-3 sm:pt-0"><i class="fas fa-layer-group text-sky-500 dark:text-sky-400 text-xs"></i> Vanilla JS, Chart.js, Tailwind CSS</div>
+                        <a href="https://mahendradanu123.github.io/e-commerce/" target="_blank" class="px-3 py-1.5 bg-sky-500/10 hover:bg-sky-500 text-sky-500 dark:text-sky-400 hover:text-slate-950 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 border border-sky-500/20 text-center text-[10px]">Buka Website</a>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section>
 
-    <section id="cv" class="py-24 border-t border-slate-900 bg-slate-900/40">
+    <section id="cv" class="py-24 border-t border-slate-200 dark:border-slate-900 bg-slate-200/20 dark:bg-slate-900/40">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center space-y-2 mb-12">
-                <h2 class="text-3xl font-bold text-white">Curriculum Vitae</h2>
-                <p class="text-sm text-sky-400 uppercase tracking-widest">Informasi Riwayat Hidup Profesional</p>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Curriculum Vitae</h2>
+                <p class="text-sm text-sky-500 dark:text-sky-400 uppercase tracking-widest">Informasi Riwayat Hidup Profesional</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
             <div class="flex justify-center">
@@ -487,15 +632,15 @@
                     </div>
                     <div class="p-6 md:w-1/2 flex flex-col justify-between space-y-6 bg-gradient-to-b md:bg-gradient-to-r from-transparent to-sky-950/10">
                         <div class="space-y-3">
-                            <span class="text-[10px] uppercase font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded">Dokumen Utama</span>
-                            <h3 class="text-xl font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Curriculum Vitae & Resume</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed">
+                            <span class="text-[10px] uppercase font-bold text-sky-500 dark:text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded">Dokumen Utama</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Curriculum Vitae & Resume</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                                 Berisi rangkuman riwayat akademis, tumpukan teknologi (tech stack), keahlian teknis, serta rekam jejak pengerjaan proyek software development saya.
                             </p>
                         </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">Terbaru (Sms. 6)</span>
-                            <a id="display-cv-card-btn" href="cv.png" target="_blank" class="text-sm text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Buka / Unduh <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a id="display-cv-card-btn" href="cv.png" target="_blank" class="text-sm text-sky-500 dark:text-sky-300 font-bold flex items-center gap-1">Buka / Unduh <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
@@ -503,146 +648,147 @@
         </div>
     </section>
 
-    <section id="certificates" class="py-24 border-t border-slate-900 bg-slate-900/10">
+    <section id="certificates" class="py-24 border-t border-slate-200 dark:border-slate-900 bg-slate-200/10 dark:bg-slate-900/10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center space-y-2 mb-16">
-                <h2 class="text-3xl font-bold text-white">Sertifikasi & Penghargaan</h2>
-                <p class="text-sm text-sky-400 uppercase tracking-widest">Koleksi Sertifikat Kompetensi</p>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Sertifikasi & Penghargaan</h2>
+                <p class="text-sm text-sky-500 dark:text-sky-400 uppercase tracking-widest">Koleksi Sertifikat Kompetensi</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif1.jpeg" alt="Sertifikat 1" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Event Online - DevOpsEngineer</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: dibimbing.id</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Event Online - DevOpsEngineer</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: dibimbing.id</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">25 Mei 2026</span>
-                            <a href="sertif1.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif1.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif2.jpeg" alt="Sertifikat 2" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Event Online - Fullstack Web Development</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: dibimbing.id</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Event Online - Fullstack Web Development</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: dibimbing.id</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">22 Mei 2026</span>
-                            <a href="sertif2.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif2.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif3.jpeg" alt="Sertifikat 3" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">AI Productivity and AI API Integration</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Hacktiv8 Indonesia</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">AI Productivity and AI API Integration</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: Hacktiv8 Indonesia</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">2025</span>
-                            <a href="sertif3.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif3.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif4.jpeg" alt="Sertifikat 4" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Solo Techno On Ramadhan 2.0</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Solo Techno Incubator</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Solo Techno On Ramadhan 2.0</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: Solo Techno Incubator</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">2-13 Maret 2026</span>
-                            <a href="sertif4.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif4.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif5.jpeg" alt="Sertifikat 5" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Innovation and Challenges of Medical Tech</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Universitas Anwar Medika</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Innovation and Challenges of Medical Tech</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: Universitas Anwar Medika</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">7 November 2023</span>
-                            <a href="sertif5.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif5.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif6.jpeg" alt="Sertifikat 6" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Webinar Public Speaking Master Your Voice</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: PT Duta Neuro Akselerasi</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Webinar Public Speaking Master Your Voice</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: PT Duta Neuro Akselerasi</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">18 April 2026</span>
-                            <a href="sertif6.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif6.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif7.jpeg" alt="Sertifikat 7" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Membuat Aplikasi Mobile dengan Flutter</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Membuat Aplikasi Mobile dengan Flutter</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">28 September 2024</span>
-                            <a href="sertif7.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif7.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif8.jpeg" alt="Sertifikat 8" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Pelatihan Pembuatan animasi sebagai Media Promosi</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
+                            <!-- DIPERBAIKI: Mengubah 'text-white' menjadi 'text-slate-900 dark:text-white' agar terlihat tajam di mode terang -->
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Pelatihan Pembuatan animasi sebagai Media Promosi</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">30 Desember 2023</span>
-                            <a href="sertif8.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif8.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-sky-500/30 transition-all duration-300">
                     <div class="w-full aspect-[16/10] overflow-hidden bg-slate-950 relative">
                         <img src="sertif9.jpeg" alt="Sertifikat 9" class="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div class="space-y-1">
-                            <h3 class="text-lg font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">Desain Grafis Unik untuk Personal Branding Content Creator</h3>
-                            <p class="text-xs text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">Desain Grafis Unik untuk Personal Branding Content Creator</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Penyelenggara: Universitas Duta Bangsa Surakarta</p>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-800/50">
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-200/50 dark:border-slate-800/50">
                             <span class="text-[11px] text-slate-500 font-medium">24 Mei 2024</span>
-                            <a href="sertif9.jpeg" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                            <a href="sertif9.jpeg" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Lihat <i class="fas fa-external-link-alt text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
@@ -650,56 +796,130 @@
         </div>
     </section>
 
-   <section id="contact" class="py-24 bg-slate-900/40 border-t border-slate-900">
+    <section id="contact" class="py-24 bg-slate-900/40 border-t border-slate-900">
         <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
             <div class="space-y-2">
-                <h2 class="text-3xl font-bold text-white">Hubungi Saya</h2>
-                <p class="text-sm text-slate-400 max-w-sm mx-auto">Ada proyek yang mau didiskusikan? Silakan hubungi saya.</p>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Hubungi Saya</h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400 max-w-sm mx-auto">Ada proyek yang mau didiskusikan? Silakan hubungi saya.</p>
                 <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full mt-2"></div>
             </div>
             
+            <!-- Grid Hubungi Saya (4 Kolom Termasuk GitHub) -->
             <div class="grid sm:grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <!-- Email -->
                 <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left">
-                    <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope"></i></div>
+                    <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-500 dark:text-sky-400 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope"></i></div>
                     <div class="min-w-0">
                         <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Email</div>
-                        <a href="mailto:mahendradanu895@gmail.com" id="display-email" class="text-xs text-white hover:text-sky-400 transition-colors truncate block">mahendradanu895@gmail.com</a>
+                        <a href="mailto:mahendradanu895@gmail.com" id="display-email" class="text-xs text-slate-800 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors truncate block">mahendradanu895@gmail.com</a>
                     </div>
                 </div>
+                <!-- WhatsApp -->
                 <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone"></i></div>
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone"></i></div>
                     <div>
                         <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Nomor HP / WA</div>
-                        <span id="display-phone" class="text-xs text-white">081548433270</span>
+                        <span id="display-phone" class="text-xs text-slate-800 dark:text-white">081548433270</span>
                     </div>
                 </div>
+                <!-- Instagram -->
                 <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left">
-                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center flex-shrink-0"><i class="fab fa-instagram text-lg"></i></div>
+                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-500 dark:text-pink-400 flex items-center justify-center flex-shrink-0"><i class="fab fa-instagram text-lg"></i></div>
                     <div>
                         <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Instagram</div>
-                        <a href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" id="display-instagram" target="_blank" class="text-xs text-white hover:text-pink-400 transition-colors">@dnuu.__</a>
+                        <a href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" id="display-instagram" target="_blank" class="text-xs text-slate-800 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors">@dnuu.__</a>
                     </div>
                 </div>
-                <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left border border-slate-800 hover:border-slate-700 transition-colors">
-                    <div class="w-10 h-10 rounded-lg bg-slate-700/20 text-white flex items-center justify-center flex-shrink-0"><i class="fab fa-github text-lg"></i></div>
+                <!-- GitHub -->
+                <div class="glass-card p-4 rounded-xl flex items-center gap-4 text-left">
+                    <div class="w-10 h-10 rounded-lg bg-slate-400/20 dark:bg-slate-700/20 text-slate-800 dark:text-white flex items-center justify-center flex-shrink-0"><i class="fab fa-github text-lg"></i></div>
                     <div>
                         <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">GitHub</div>
-                        <a href="https://github.com/mahendradanu123" target="_blank" class="text-xs text-white hover:text-sky-400 transition-colors">mahendradanu123</a>
+                        <a href="https://github.com/mahendradanu123" target="_blank" class="text-xs text-slate-800 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors">mahendradanu123</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Tombol Aksi Sosial -->
             <div class="flex flex-wrap justify-center gap-3 pt-4">
                 <a id="link-email" href="mailto:mahendradanu895@gmail.com" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2"><i class="fas fa-paper-plane"></i> Kirim Email</a>
                 <a id="link-wa" href="https://wa.me/6281548433270" target="_blank" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
                 <a id="link-ig" href="https://www.instagram.com/dnuu.__?igsh=NWp4cjQ0aGE0MWw0" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-medium rounded-lg text-sm transition-all flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram</a>
-                <a id="link-github" href="https://github.com/mahendradanu123" target="_blank" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2 border border-slate-700/50"><i class="fab fa-github text-base"></i> GitHub</a>
+                <a id="link-github" href="https://github.com/mahendradanu123" target="_blank" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg text-sm transition-colors flex items-center gap-2 border border-slate-300 dark:border-slate-700/50"><i class="fab fa-github text-base"></i> GitHub</a>
             </div>
         </div>
     </section>
 
     <script>
-        // Logika Menu Hamburger di HP
+        // ==========================================
+        // TYPEWRITER ANIMATION LOGIC (NAMA SAJA)
+        // ==========================================
+        const phrase = "Bettanuary Danu Mahendra Putra";
+        let charIdx = 0;
+        let isDeleting = false;
+        const displayNameEl = document.getElementById('display-name');
+        
+        const typingSpeed = 100;
+        const deletingSpeed = 45;
+        const delayBetweenCycles = 2500;
+
+        function typeEffect() {
+            if (!isDeleting && charIdx <= phrase.length) {
+                displayNameEl.textContent = phrase.substring(0, charIdx);
+                charIdx++;
+                setTimeout(typeEffect, typingSpeed);
+            } else if (isDeleting && charIdx >= 0) {
+                displayNameEl.textContent = phrase.substring(0, charIdx);
+                charIdx--;
+                setTimeout(typeEffect, deletingSpeed);
+            } else {
+                isDeleting = !isDeleting;
+                setTimeout(typeEffect, isDeleting ? delayBetweenCycles : 500);
+            }
+        }
+
+        // Jalankan efek ketikan pertama kali
+        typeEffect();
+
+        // ==========================================
+        // LIGHT / DARK MODE TOGGLE SYSTEM
+        // ==========================================
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            htmlEl.classList.toggle('dark');
+            
+            const isDark = htmlEl.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            updateThemeUI(isDark);
+        }
+
+        function updateThemeUI(isDark) {
+            const themeIcon = document.getElementById('theme-icon');
+            if (isDark) {
+                themeIcon.className = 'fas fa-sun';
+                document.body.classList.add('text-slate-200');
+                document.body.classList.remove('text-slate-800');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                document.body.classList.add('text-slate-800');
+                document.body.classList.remove('text-slate-200');
+            }
+        }
+
+        // Mengatur tema sesuai preferensi terakhir user
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            updateThemeUI(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateThemeUI(false);
+        }
+
+        // ==========================================
+        // MOBILE NAVBAR BURGER BUTTON LOGIC
+        // ==========================================
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -713,23 +933,25 @@
             }
         }
 
-        // Logika Filter Proyek ala Vercel
+        // ==========================================
+        // PROJECTS PORTFOLIO FILTER SYSTEM
+        // ==========================================
         function filterProjects(category) {
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.project-filter-btn');
             
-            // Atur ulang status aktif semua tombol
+            // Atur ulang tombol filter yang tidak aktif
             buttons.forEach(btn => {
                 btn.classList.remove('active', 'bg-sky-500', 'text-white');
-                btn.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700/50');
+                btn.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-300/40', 'dark:border-slate-700/50');
             });
             
-            // Ubah tombol yang aktif diklik
+            // Sorot tombol filter yang sedang ditekan
             const activeBtn = event.currentTarget;
-            activeBtn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700/50');
+            activeBtn.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-300/40', 'dark:border-slate-700/50');
             activeBtn.classList.add('active', 'bg-sky-500', 'text-white');
 
-            // Menyembunyikan dan Memunculkan Kartu Proyek dengan Animasi
+            // Menyaring dan menganimasikan visibilitas kartu proyek
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'flex';
